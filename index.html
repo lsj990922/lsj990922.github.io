@@ -152,6 +152,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL-1-6章总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/17/MySQL-1-6章总结/">MySQL 1-6章总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/17/MySQL-1-6章总结/" class="archive-article-date">
+  	<time datetime="2019-10-17T03:21:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>第一章 MySQL基础 </code></pre><p>第一部分：</p>
+<p>1、什么是数据库？<br>    数据库即数据仓库，里面存储的有关系的数据<br>    数据库里边，真正装数据是一张一张的表<br>2、什么是表？<br>    表由行和列组成，行称为记录，列称为字段或属性<br>    eg：学生表：学生有学号，班级，姓名，身份证号，年纪，那么这些就称为学生表的字段，学生的数据就是一条记录。<br>3、一个数据库一般由多张有关系的表组成 。<br>4、数据库的分类：<br>    关系型数据库：SQLServer(微软),MySQL(被甲骨文收购),Oracle(甲骨文)<br>    非关系型数据库：redis<br>5、Mysql软件  Mysql服务器<br>我们安装的是两个软件，首先安装Mysql服务器，再安装Mysql客户端<br>Mysql服务器：数据库与表都是存在服务器上的<br>Mysql客户端：负责连接上Mysql服务器，进而对Mysql服务器进行操作，比较好的客户端有：sqlyog,navicat</p>
+<p>第二部分：SQL语句<br>1、创建语句：<br>    1.1 创建数据库    create database 库名；<br>    1.2 创建表      create table 表名（<br>                字段名1 数据类型 约束，<br>                字段名2 数据类型 约束，<br>                字段名3 数据类型<br>                ）<br>2、插入语句<br>    insert into 表名(字段1,字段2)values(数据1,数据2)<br>3、查询语句<br>    select 字段1,字段2,字段3<br>       from 表名<br>4、删除语句<br>    删除库<br>        drop database 库名;<br>    删除表<br>        drop table 表名;<br>    删除表中所有的数据<br>        delete from 表名;<br>    删除表中指定的数据<br>        delete from 表名 where …<br>5、修改语句<br>    update 表名 set …where…<br>6、修改表的定义的语句<br>  （1）修改表名<br>    Alter table 旧表名 rename[to] 新表名<br>   (2)修改数据类型<br>    Alter table 表名 modify 列表数据类型<br>  （3）修改列名<br>    Alter table&lt;表名&gt; change 旧列名 新列名 新数据类型<br>  （4）删除列<br>    Alter table 表名 drop 列名<br>  （5）添加列<br>    Altertable表名 add 新列名数据类型 [约束][first | after 已存在列名]<br>7、最常用的数据类型：int<br>             char：字符串类型，固定长度<br>             varchar：字符串类型，可变长度<br>             float<br>第三部分：约束<br>1、主键约束（primary key）：不允许重复，非空<br>    主键：一行的唯一标识，表中的其他数据依赖于主键<br>2、非空约束（not null）<br>3、唯一约束（unique）：此列不允许重复<br>4、默认值（default）<br>5、check约束（check）<br>6、外键约束（foreign key）<br>    外键：此表中一个字段，引用另外一张表中字段数据，并且被引用的字段，是另外一张表的主键，那么此表中的字段就称为本张表的外键。</p>
+<pre><code>第二章 数据库和表的设计</code></pre><p>第一部分：约束<br>1、主键约束（primary key）：不允许重复，非空<br>    主键：一行的唯一标识，表中的其他数据依赖于主键<br>2、非空约束（not null）<br>3、唯一约束（unique）：此列不允许重复<br>4、默认值（default）<br>5、check约束（check）<br>6、外键约束（foreign key）<br>    外键：此表中一个字段，引用另外一张表中字段数据，并且被引用的字段，是另外一张表的主键，那么此表中的字段就称为本张表的外键。</p>
+<p>第二部分<br>1、数据库的设计的三大范式<br>    第一范式：表中的字段都是不可分割的最小的数据单元<br>    第二范式：每张表只能描述一件事情（每张表中都要有主键）<br>    第三范式：非主键字段要依赖于主键字段。<br>          换句话说，非主键字段与主键字段直接相关。<br>在设计表时，尽可能依照三大范式，但有时候为了性能，会牺牲一点范式。<br>2、数据库设计的步骤（六个步骤）<br>（1）需求分析阶段<br>（2）概念结构设计阶段<br>（3）逻辑结构设计阶段<br>（4）数据库物理设计阶段<br>（5）数据库实施阶段<br>（6）数据库运行和维护阶段</p>
+<pre><code>第三章 操作表中的数据</code></pre><p>第一部分<br>1、MySQL运算符<br>（1）算术运算符：+、-、*、/<br>（2）逻辑运算符：and、or、！<br>（3）比较运算符：&gt;、&lt; 、&gt;=、&lt;=、&lt;&gt;、!=</p>
+<pre><code>第四章 数据查询入门</code></pre><p>第一部分<br>1、MySQL常用关键字<br>（1）in：查询在。。。选项中的数据<br>      where name in(‘张三’,’李四’)<br>     把name等于张三，等于李四的都查询出来<br>（2）not in：查询不在。。。选项中的数据<br>         where name not in(‘张三’,’李四’)<br>         把name不等于张三，不等于李四的都查询出来<br>（3）distinct：去重<br>（4）limit：查询出表的前几行<br>（5）between…and…：在。。。。之间<br>（6）as：</p>
+<pre><code>第五章 模糊查询与分组查询</code></pre><p>第一部分<br>1、聚合函数<br>（1）count() 求行数<br>（2）sum()   求一列的和<br>（3）avg()   求平均值<br>（4）max()   求最大值<br>（5）min()   求最小值<br>2、模糊查询中的关键字like以及通配符%_</p>
+<p>第二部分<br>1、排序<br>（1）order by：排序<br>    &lt;1&gt;升序：ASC （从小到大）<br>    &lt;2&gt;降序：DESC（从大到小）<br>（2）group by：把表分组，数据分组查询关键字<br>（3）group by…having..分组并筛选符合条件的组    </p>
+<p>having：字句分组查询的条件筛选<br>2、子查询：查询语句里面嵌套查询语句</p>
+<pre><code>第六章 多表连接查询</code></pre><p>第一部分</p>
+<p>1、连接：把多张表连接成一张表，要注意一般连接有主外键关系的表<br>2、连接的分类：<br>（1）普通连接：必须有相同的字段<br>        eg：SELECT *FROM studentInfo s,score c<br>            WHERE s.sid=c.sid;</p>
+<p>（2）内连接：inner join..on..<br>        inner join用内连接的方式连接两张表<br>        on  后边跟的是条件<br>（3）外连接（左连接与右连接）<br>左连接：left join..on..<br>    左边的表显示所有数据，右边的表只显示匹配上的数据<br>右连接：right join..on..<br>    右边的表显示所有数据，左边的表只显示匹配上的数据<br>（4）全连接：左右两边全都显示</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/17/MySQL-1-6章总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-琵琶行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
