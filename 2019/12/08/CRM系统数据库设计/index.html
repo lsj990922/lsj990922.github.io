@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>CRM系统数据库设计 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="CRM系统数据库设计数据库引擎： InnoDB字符编码： utf8用途：仅供教师参考，要求学生在老师的带领下完成设计编写：吕本磊修订：常伟 数据表关系 用户表user字段名    数据类型    字段说明    备注user_id    int(10)    主键 自动增长 自增初始值6    员工IDdepartment_id    int(10)    department表外键 默认值 NU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRM系统数据库设计">
+<meta property="og:url" content="http://yoursite.com/2019/12/08/CRM系统数据库设计/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CRM系统数据库设计数据库引擎： InnoDB字符编码： utf8用途：仅供教师参考，要求学生在老师的带领下完成设计编写：吕本磊修订：常伟 数据表关系 用户表user字段名    数据类型    字段说明    备注user_id    int(10)    主键 自动增长 自增初始值6    员工IDdepartment_id    int(10)    department表外键 默认值 NU">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-08T00:29:57.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="CRM系统数据库设计">
+<meta name="twitter:description" content="CRM系统数据库设计数据库引擎： InnoDB字符编码： utf8用途：仅供教师参考，要求学生在老师的带领下完成设计编写：吕本磊修订：常伟 数据表关系 用户表user字段名    数据类型    字段说明    备注user_id    int(10)    主键 自动增长 自增初始值6    员工IDdepartment_id    int(10)    department表外键 默认值 NU">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,295 +154,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-CRM系统数据库设计" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      CRM系统数据库设计
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/08/CRM系统数据库设计/" class="archive-article-date">
+
+        
+        <a href="/2019/12/08/CRM系统数据库设计/" class="archive-article-date">
   	<time datetime="2019-12-08T00:27:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/08/CRM系统数据库设计/">CRM系统数据库设计</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CRM系统数据库设计<br>数据库引擎： InnoDB<br>字符编码： utf8<br>用途：仅供教师参考，要求学生在老师的带领下完成设计<br>编写：吕本磊<br>修订：常伟</p>
+<p>数据表关系</p>
+<p>用户表user<br>字段名    数据类型    字段说明    备注<br>user_id    int(10)    主键 自动增长 自增初始值6    员工ID<br>department_id    int(10)    department表外键 默认值 NULL    部门ID<br>role_id    int(10)    role表外键 默认值 NULL    角色ID<br>username    varchar(8)    默认值 NULL    姓名<br>is_male    bit    默认值 1<br>男：1<br>女：0    性别<br>mobile    varchar(11)    默认值 NULL    手机<br>age    int(10)    默认值 NULL    年龄<br>address    varchar(50)    默认值 NULL    地址<br>is_admin    bit    默认值 0       是否管理员<br>is_system    bit    默认值 0       是否为系统内置（不能删除）<br>password    varchar(50)    默认值 NULL<br>tel    varchar(20)    默认值 NULL    座机<br>id_num    varchar(20)    默认值 NULL    身份证<br>email    varchar(100)    默认值 NULL    E_mail<br>hobby    varchar(50)    默认值 NULL    爱好<br>education    tinyint    默认值 0<br>博士：7<br>硕士：6<br>本科：5<br>专科：4<br>高中：3<br>初中：2<br>小学：1    学历<br>card_num    varchar(20)    默认值 NULL    工资卡号<br>nation    varchar(20)    默认值 NULL    民族<br>marry<br>    tinyint    默认值 0<br>离异：-1<br>已婚：1<br>未婚：0    婚姻状况<br>status    tinyint    默认值：2<br>已创建（未激活，不能登录）：1<br>正常（已激活）：2<br>已禁用（不能登录）：-1<br>已删除：-2    用户状态<br>remark    varchar(100)    NULL    操作备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>站内邮件 message<br>字段名    数据类型    字段说明    备注<br>message_id    int(10)    主键 自动增长 自增初始值4    邮件ID<br>subject    varchar(50)    默认值 NULL    邮件主题<br>content    varchar(2000)        内容<br>sender    int        发件人</p>
+<p>send_delete    tinyint    2 正常 0 删除到垃圾箱 -2 彻底删除     发件人删除<br>send_status    tinyint    0草稿，2已发送    发布状态<br>save_time    timestamp        保存草稿时间<br>send_time    timestamp        发送时间<br>send_update_time    timestamp        发送方更新时间<br>receiver    int        接收人<br>receive_delete    tinyint    2 正常 0 删除到垃圾箱 -2 彻底删除    收件人删除<br>receive_status    tinyint    0未读，2已读    收件状态<br>receive_update_time    timestamp        收件方更新时间</p>
+<p>部门表 department<br>字段名    数据类型    字段说明    备注<br>department_id    int(10)    主键 自动增长 自增初始值4    部门ID<br>department_name    varchar(50)    默认值 NULL    部门名称<br>department_desc    varchar(500)    默认值 NULL    部门描述<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    部门状态<br>remark    varchar(100)    NULL    操作备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>角色表role<br>字段名    数据类型    字段说明    备注<br>role_id    int(10)    主键 自动增长 自增初始值4    角色ID<br>role_name    varchar(50)    默认值 NULL    角色名<br>role_permission    int(10)    默认值 1<br>取值范围1，5，数字越大权限越大    权限等级<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    部门状态<br>remark    varchar(100)    NULL    操作备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>通知公告表 notice<br>字段名    数据类型    字段说明    备注<br>notice_id    int(10)    主键 自动增长 自增初始值4    公告信息ID<br>receive_id    int(10)    默认0<br>全部部门：0    接收部门Id<br>subject    varchar(50)    默认值 NULL    公告主题<br>text    varchar(1000)    默认值 NULL    公告内容<br>pub_time    timestamp    默认值 CURRENT_TIMESTAMP    发布时间<br>expire_time    timestamp        过期时间<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    公告状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户状态表customer_state<br>字段名    数据类型    字段说明    备注<br>customer_state_id    int(10)    主键 自动增长 自增初始值4    状态ID<br>customer_state_name    varchar(15)    默认值 NULL    状态名称<br>customer_state_desc    varchar(100)    默认值 NULL    状态描述<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户来源表customer_source<br>字段名    数据类型    字段说明    备注<br>customer_source_id    int(10)    主键 自动增长 自增初始值4    客户来源ID<br>customer_source_name    varchar(15)    默认值 NULL    客户来源<br>customer_source_desc    varchar(50)    默认值 NULL    来源说明<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户分类表 customer_category<br>字段名    数据类型    字段说明    备注<br>customer_category_id    int(10)    主键 自动增长 自增初始值5    客户类型ID<br>customer_category_name    varchar(15)    默认值 NULL    分类名称<br>customer_category_desc    varchar(100)    默认值 NULL    分类描述<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户表customer<br>字段名    数据类型    字段说明    备注<br>customer_id    int(10)    主键 自动增长 自增初始值5    客户ID<br>customer_state_id    int(10)    外键 默认值 NULL    客户状态ID<br>customer_source_id    int(10)    外键 默认值 NULL    客户来源ID<br>user_id    int(10)    外键 默认值 NULL    责任员工ID<br>customer_category_id    int(10)    外键 默认值 NULL    客户类型ID<br>customer_name    varchar(10)    默认值 NULL    客户姓名<br>customer_is_male    bit    默认值 NULL    客户性别<br>customer_mobile    varchar(20)    默认值 NULL    客户手机<br>customer_qq    varchar(20)    默认值 NULL    客户QQ<br>customer_address    varchar(100)    默认值 NULL    客户地址<br>customer_email    varchar(100)    默认值 NULL    客户邮箱<br>customer_remark    varchar(1000)    默认值 NULL    备注<br>customer_position    varchar(100)    默认值 NULL    客户职位<br>customer_blog    varchar(100)    默认值 NULL    客户微博<br>customer_tel    varbinary(20)    默认值 NULL    客户座机<br>customer_birth    timestamp    默认值 CURRENT_TIMESTAMP    出生日期<br>customer_company    varchar(50)    默认值 NULL    客户公司<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户关怀表customer_care<br>字段名    数据类型    字段说明    备注<br>customer_care_id    int(10)    主键   自动增长 自增初始值3    客户关怀ID<br>customer_id    int(10)    customer_info外键   默认值 NULL    客户ID<br>care_subject    varchar(50)    默认值 NULL    关怀主题<br>care_type    varchar(50)    默认值 NULL    关怀方式<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>next_time    timestamp        下次关怀时间<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>联系人表customer_link<br>字段名    数据类型    字段说明    备注<br>link_id    int(10)    主键   自动增长 自增初始值2    联系人ID<br>customer_id    int(10)    customer_info外键   默认值 NULL    客户ID<br>link_name    varchar(50)    默认值 NULL    联系人姓名<br>link_is_male    varchar(20)    默认值 NULL    性别<br>link_position    varchar(100)    默认值 NULL    职位<br>link_mobile    varchar(20)    默认值 NULL    联系电话<br>link_age    int(10)    默认值 NULL    年龄<br>link_relation    tinyint    默认：2<br>亲属：1<br>朋友：2<br>同事：3<br>上司：4    与客户关系<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>next_time    timestamp        下次关怀时间<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户联系记录表customer_link_record<br>字段名    数据类型    字段说明    备注<br>record_id    int(10)    主键 自动增长 自增初始值3    记录ID<br>customer_id    int(10)    customer_info 外键 默认值 NULL    客户ID<br>link_type    varchar(50)    默认值 NULL    联系类型<br>link_subject    varchar(200)    默认值 NULL    联系主题<br>link_nexttime    varchar(1000)    默认值 NULL    下次联系时间<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>next_time    timestamp        下次关怀时间<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/08/CRM系统数据库设计/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/08/项目介绍及需求/" class="archive-article-date">
-  	<time datetime="2019-12-08T00:27:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/08/项目介绍及需求/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目介绍及需求</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/08/项目介绍及需求/">项目介绍及需求</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/动态网站开发第六次课讲义/" class="archive-article-date">
-  	<time datetime="2019-11-30T05:45:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/动态网站开发第六次课讲义/">动态网站开发第六次课讲义</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/30/动态网站开发第五次课讲义/" class="archive-article-date">
-  	<time datetime="2019-11-30T05:40:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/30/动态网站开发第五次课讲义/">动态网站开发第五次课讲义</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/动态网站开发第四次课讲义/" class="archive-article-date">
-  	<time datetime="2019-11-22T00:34:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/动态网站开发第四次课讲义/">动态网站开发第四次课讲义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/22/动态网站开发第三次课讲义/" class="archive-article-date">
-  	<time datetime="2019-11-22T00:25:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/22/动态网站开发第三次课讲义/">动态网站开发第三次课讲义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/17/动态网站开发第二次讲义/" class="archive-article-date">
-  	<time datetime="2019-11-17T06:55:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/17/动态网站开发第二次讲义/">动态网站开发第二次讲义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/13/动态网站开发第一次课讲义/" class="archive-article-date">
-  	<time datetime="2019-11-13T06:55:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/13/动态网站开发第一次课讲义/">动态网站开发第一次课讲义</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/23/MySQL第五次课/" class="archive-article-date">
-  	<time datetime="2019-10-23T02:24:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/MySQL第五次课/">MySQL第五次课</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/23/MySQL第四课/" class="archive-article-date">
-  	<time datetime="2019-10-23T02:20:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/MySQL第四课/">MySQL第四课</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +340,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

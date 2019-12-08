@@ -152,6 +152,153 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CRM系统数据库设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/08/CRM系统数据库设计/">CRM系统数据库设计</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/08/CRM系统数据库设计/" class="archive-article-date">
+  	<time datetime="2019-12-08T00:27:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CRM系统数据库设计<br>数据库引擎： InnoDB<br>字符编码： utf8<br>用途：仅供教师参考，要求学生在老师的带领下完成设计<br>编写：吕本磊<br>修订：常伟</p>
+<p>数据表关系</p>
+<p>用户表user<br>字段名    数据类型    字段说明    备注<br>user_id    int(10)    主键 自动增长 自增初始值6    员工ID<br>department_id    int(10)    department表外键 默认值 NULL    部门ID<br>role_id    int(10)    role表外键 默认值 NULL    角色ID<br>username    varchar(8)    默认值 NULL    姓名<br>is_male    bit    默认值 1<br>男：1<br>女：0    性别<br>mobile    varchar(11)    默认值 NULL    手机<br>age    int(10)    默认值 NULL    年龄<br>address    varchar(50)    默认值 NULL    地址<br>is_admin    bit    默认值 0       是否管理员<br>is_system    bit    默认值 0       是否为系统内置（不能删除）<br>password    varchar(50)    默认值 NULL<br>tel    varchar(20)    默认值 NULL    座机<br>id_num    varchar(20)    默认值 NULL    身份证<br>email    varchar(100)    默认值 NULL    E_mail<br>hobby    varchar(50)    默认值 NULL    爱好<br>education    tinyint    默认值 0<br>博士：7<br>硕士：6<br>本科：5<br>专科：4<br>高中：3<br>初中：2<br>小学：1    学历<br>card_num    varchar(20)    默认值 NULL    工资卡号<br>nation    varchar(20)    默认值 NULL    民族<br>marry<br>    tinyint    默认值 0<br>离异：-1<br>已婚：1<br>未婚：0    婚姻状况<br>status    tinyint    默认值：2<br>已创建（未激活，不能登录）：1<br>正常（已激活）：2<br>已禁用（不能登录）：-1<br>已删除：-2    用户状态<br>remark    varchar(100)    NULL    操作备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>站内邮件 message<br>字段名    数据类型    字段说明    备注<br>message_id    int(10)    主键 自动增长 自增初始值4    邮件ID<br>subject    varchar(50)    默认值 NULL    邮件主题<br>content    varchar(2000)        内容<br>sender    int        发件人</p>
+<p>send_delete    tinyint    2 正常 0 删除到垃圾箱 -2 彻底删除     发件人删除<br>send_status    tinyint    0草稿，2已发送    发布状态<br>save_time    timestamp        保存草稿时间<br>send_time    timestamp        发送时间<br>send_update_time    timestamp        发送方更新时间<br>receiver    int        接收人<br>receive_delete    tinyint    2 正常 0 删除到垃圾箱 -2 彻底删除    收件人删除<br>receive_status    tinyint    0未读，2已读    收件状态<br>receive_update_time    timestamp        收件方更新时间</p>
+<p>部门表 department<br>字段名    数据类型    字段说明    备注<br>department_id    int(10)    主键 自动增长 自增初始值4    部门ID<br>department_name    varchar(50)    默认值 NULL    部门名称<br>department_desc    varchar(500)    默认值 NULL    部门描述<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    部门状态<br>remark    varchar(100)    NULL    操作备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>角色表role<br>字段名    数据类型    字段说明    备注<br>role_id    int(10)    主键 自动增长 自增初始值4    角色ID<br>role_name    varchar(50)    默认值 NULL    角色名<br>role_permission    int(10)    默认值 1<br>取值范围1，5，数字越大权限越大    权限等级<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    部门状态<br>remark    varchar(100)    NULL    操作备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>通知公告表 notice<br>字段名    数据类型    字段说明    备注<br>notice_id    int(10)    主键 自动增长 自增初始值4    公告信息ID<br>receive_id    int(10)    默认0<br>全部部门：0    接收部门Id<br>subject    varchar(50)    默认值 NULL    公告主题<br>text    varchar(1000)    默认值 NULL    公告内容<br>pub_time    timestamp    默认值 CURRENT_TIMESTAMP    发布时间<br>expire_time    timestamp        过期时间<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    公告状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户状态表customer_state<br>字段名    数据类型    字段说明    备注<br>customer_state_id    int(10)    主键 自动增长 自增初始值4    状态ID<br>customer_state_name    varchar(15)    默认值 NULL    状态名称<br>customer_state_desc    varchar(100)    默认值 NULL    状态描述<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户来源表customer_source<br>字段名    数据类型    字段说明    备注<br>customer_source_id    int(10)    主键 自动增长 自增初始值4    客户来源ID<br>customer_source_name    varchar(15)    默认值 NULL    客户来源<br>customer_source_desc    varchar(50)    默认值 NULL    来源说明<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户分类表 customer_category<br>字段名    数据类型    字段说明    备注<br>customer_category_id    int(10)    主键 自动增长 自增初始值5    客户类型ID<br>customer_category_name    varchar(15)    默认值 NULL    分类名称<br>customer_category_desc    varchar(100)    默认值 NULL    分类描述<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户表customer<br>字段名    数据类型    字段说明    备注<br>customer_id    int(10)    主键 自动增长 自增初始值5    客户ID<br>customer_state_id    int(10)    外键 默认值 NULL    客户状态ID<br>customer_source_id    int(10)    外键 默认值 NULL    客户来源ID<br>user_id    int(10)    外键 默认值 NULL    责任员工ID<br>customer_category_id    int(10)    外键 默认值 NULL    客户类型ID<br>customer_name    varchar(10)    默认值 NULL    客户姓名<br>customer_is_male    bit    默认值 NULL    客户性别<br>customer_mobile    varchar(20)    默认值 NULL    客户手机<br>customer_qq    varchar(20)    默认值 NULL    客户QQ<br>customer_address    varchar(100)    默认值 NULL    客户地址<br>customer_email    varchar(100)    默认值 NULL    客户邮箱<br>customer_remark    varchar(1000)    默认值 NULL    备注<br>customer_position    varchar(100)    默认值 NULL    客户职位<br>customer_blog    varchar(100)    默认值 NULL    客户微博<br>customer_tel    varbinary(20)    默认值 NULL    客户座机<br>customer_birth    timestamp    默认值 CURRENT_TIMESTAMP    出生日期<br>customer_company    varchar(50)    默认值 NULL    客户公司<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户关怀表customer_care<br>字段名    数据类型    字段说明    备注<br>customer_care_id    int(10)    主键   自动增长 自增初始值3    客户关怀ID<br>customer_id    int(10)    customer_info外键   默认值 NULL    客户ID<br>care_subject    varchar(50)    默认值 NULL    关怀主题<br>care_type    varchar(50)    默认值 NULL    关怀方式<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>next_time    timestamp        下次关怀时间<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>联系人表customer_link<br>字段名    数据类型    字段说明    备注<br>link_id    int(10)    主键   自动增长 自增初始值2    联系人ID<br>customer_id    int(10)    customer_info外键   默认值 NULL    客户ID<br>link_name    varchar(50)    默认值 NULL    联系人姓名<br>link_is_male    varchar(20)    默认值 NULL    性别<br>link_position    varchar(100)    默认值 NULL    职位<br>link_mobile    varchar(20)    默认值 NULL    联系电话<br>link_age    int(10)    默认值 NULL    年龄<br>link_relation    tinyint    默认：2<br>亲属：1<br>朋友：2<br>同事：3<br>上司：4    与客户关系<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>next_time    timestamp        下次关怀时间<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+<p>客户联系记录表customer_link_record<br>字段名    数据类型    字段说明    备注<br>record_id    int(10)    主键 自动增长 自增初始值3    记录ID<br>customer_id    int(10)    customer_info 外键 默认值 NULL    客户ID<br>link_type    varchar(50)    默认值 NULL    联系类型<br>link_subject    varchar(200)    默认值 NULL    联系主题<br>link_nexttime    varchar(1000)    默认值 NULL    下次联系时间<br>status    tinyint    默认值：2<br>正常：2<br>已删除：-2    状态<br>remark    varchar(50)    NULL    备注<br>next_time    timestamp        下次关怀时间<br>create_time    timestamp    默认值 CURRENT_TIMESTAMP    添加时间<br>creater    int    默认值 NULL    添加人<br>update_time    timestamp    默认值 ‘0000-00-00 00:00:00’    修改时间<br>updater    int    默认值 NULL    修改人</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/08/CRM系统数据库设计/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-项目介绍及需求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/08/项目介绍及需求/">项目介绍及需求</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/08/项目介绍及需求/" class="archive-article-date">
+  	<time datetime="2019-12-08T00:27:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>客户关系管理 Customer Relationship Management，简称CRM。属于比较典型的管理信息系统Management Information System，简称MIS（核心是对信息的增删改查）。CRM广泛应用于商业领域，是非常成熟常见的管理信息系统。</p>
+<p>CRM主要用于管理客户的信息及客户和公司内部销售人员及相关部门人员之间的关系。举个例子，如果你在房地产公司当客户经理，你的工资是怎么算出来的？是死工资吗？肯定不是，销售的主要收入是提成。而提成又是由成交的客户带来的销售额决定的。于是弄清楚某个销售对一单成交的贡献率是非常重要的。而买房是大事，从初次接触到签合同成交、到最后交房可能需要数月，数年的时间，服务过该客户的销售人员不可能总是一个人，如果没有一个CRM系统，对于一个拥有众多楼盘，众多销售人员的房地产公司是不可想像的。同理，大到汽车销售，小到儿童摄影等都有同样的需求。</p>
+<p>国内外有不少CRM软件的提供商。如甲骨文—客户关系管理、销售易CRM、百会CRM、金蝶CRM等。随着移动互联网和云计算的发展，CRM也出现了移动化和云化的版本。CRM软件虽然产生的很早，但现在依然不可或缺。</p>
+<p>我们学习Java企业级开发，从CRM开始是一个非常好的选择。</p>
+<p>【管理信息系统公共需求】</p>
+<p>再次强调管理信息系统的核心是对信息（数据）的增删改查。以后再提到管理信息系统，最起码应该包括增删改查这4个功能。</p>
+<p>1.任何管理信息系统都有的公共需求-1：<br>a)登录：用户通过账号（在本系统中是真实姓名）和密码登录。不需要提供忘记密码（密码找回）功能，管理系统中，通常由后台管理员在系统中给用户重设密码。<br>b)退出：用户可以点击“退出”安全地退出系统，直接关闭浏览器也相当于退出。用户退出后或未登录时，直接在地址栏中输入后台页面地址时不能访问页面，而应跳到登录页面。<br>c)用户资料修改：允许用户修改自己的部分资料。在管理员添加用户时，为了让管理员能够快速方便地创建用户，因此只让管理员填写最少的用户信息，保证用户能够正常登录即可。而大量的用户资料则在用户登录后由用户自己填写。如：年龄、性别、民族、学历、婚姻状况、座机、手机、电子邮箱、住址、工资卡号、身份证号、爱好等（如果要求工资卡号、身份证号等信息的安全，可以将这些敏感信息单独做一个修改页面，修改时要求输入密码）。<br>d)密码修改：允许用户修改自己的登录密码，修改时，要验证原密码是否正确，以避免被他人篡改。<br>e)用户管理：允许管理员查询和列出用户、添加用户、修改用户信息、禁用用户、重置用户密码等操作。<br>f)部门管理：信息系统中的用户如果比较少，直接通过用户功能进行管理就可以了。但如果用户有好几十个，甚至上百个，划分成不同的部门就非常有必要了，而且现实生活中，管理体系中人数达到十几人，几十人的规模时一般也会建立部门。部门可以看成是分类，不同的人归属不同的部门。系统中查看用户信息时，可以分部门查看、单个用户也可以看到其所属的部门。</p>
+<p>2.任何管理信息系统都有的公共需求-2：<br>a)角色权限管理：实际商用的管理系统基本都有权限要求。没有权限管控的系统不仅安全性难以保证，而且在多人使用时也会很混乱。权限管理从简单到复杂有多种模型。<br>i.最简单的是只有用户概念的模型：这个模型中，有一个管理员账号，拥有最大的权限，能够创建、禁用用户。其它账号则是普通用户，可以进行业务操作，每个操作都会记录是谁在什么时间操作的，以备日后追查。<br>ii.稍微复杂一点的系统就会要求对系统的功能进行分组，比如财务相关的功能为一组，客户相关的功能为一组、行政相关的功能为一组。每组功能只能由一些特定的用户操作。但系统又不想做得非常复杂，这时就产生了角色权限模型。角色权限模型中，将所有用户都归为一个或多个角色，将系统中的页面或功能与角色建立关联关系。如查看工资表这个页面（功能）只赋权给账务这个角色。而张三拥有账务这个角色，则张三可以查看工资表，而其它人没有这个角色，是不能查看工资表的。<br>iii.规模更大更复杂的系统会产生大量的角色，而角色与现实工作中的部门岗位并不一致，管理起来也很麻烦。于是这些系统就直接在系统中支持部门、岗位、工作组等概念，让用户能以更自然的方式管理系统的权限。<br>iv.本系统规模不大，采用基于角色的权限机制就可以了。<br>3.CRM核心需求<br>a)客户信息管理：客户详细资料的增删改查。包含客户姓名、客户工作信息（职位、公司、公司地址、公司地址）、客户个人资料（性别、年龄、出生日期、住址）、联系信息（手机、QQ、Email）、客户类型、客户状态、备注等。其中查询时可以按照姓名、状态、来源、类型等查询，而且要支持分页功能。客户要清明确地记录是属于哪个客户经理（实际是销售部员工）的。<br>b)客户重新分配：将客户分配给另一个客户经理维护。<br>c)客户跟踪关怀：销售部门会经常与客户联系，以促进成交。如邀请客户参加活动，客户重要的日子送礼物、打电话问候，甚至上门拜访。这些信息都要记录到系统中，作为客户经理的工作记录及保证对客户的维护活动有序进行。<br>d)客户联系记录：每次与客户联系时，也都需要记录备案，以免造成遗漏或重复联系骚扰，对于特别重要的事件更是如此。联系记录包括：客户姓名、联系类型（事由）、联系方式（电话、短信、邮件）、联系时间、联系主题、联系备注、联系结果（达到目标、未达到目标）、是否需要下次联系，及下次联系时间等。<br>e)客户关联联系人：除了客户本人之外，客户还有可能带朋友、家人、同事之类的其他人到公司，此时，记录他们的信息对于扩展业务也很重要。销售做得比较好的公司，客户转介绍率甚至能超过100%。对于客户关联联系人要记录的资料是：所属客户姓名、联系人姓名、性别、年龄、与所属客户的关系、联系方式等。<br>4.系统功能性需求<br>a)站内公告：在系统内部发布或查看的公告（面向多人）信息。最好可以选择发布范围（指定发布给特定的部门或发布给全部的员工）。<br>b)站内邮件：在系统内部的单人对单人或单人对多人的信息沟通。与电子邮件非常类似，只不过是只能发给公司内部的人（并非真正的电子邮件）。包括写邮件、收件箱、发件箱、草稿箱等功能。<br>c)签到：在系统内完成完成每日的签到工作，用于考勤统计的数据。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/08/项目介绍及需求/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-动态网站开发第六次课讲义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1330,150 +1477,6 @@ request域：代表一次请求的范围，一般用于请求转发的多个资�
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/23/MySQL第四课/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL第三次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/23/MySQL第三次课/">MySQL第三次课</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/23/MySQL第三次课/" class="archive-article-date">
-  	<time datetime="2019-10-23T02:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/*<br>  Mysql第三次课<br>     order by 排序<br>         asc升序<br>         desc 降序<br>     group by 把表分组<br>     group by…having..分组并筛选符合<br>                        条件的组<br>     子查询<br>        查询语句里边嵌套查询语句<br>     连接<br>        把多张表连接成一张表,要注意<br>        一般连接有主外键关系的表<br>        连接分类：<br>        普通连接</p>
-<pre><code>内连接
-  inner join .. on...
-  inner join用内连接方式连接
-            两张表
-  on  后边写的是条件
-外连接（左连接与右连接）
-    左连接
-      left join..on...
-      左边的表显示所有数据，
-      右边的表只显示匹配上的
-      数据
-    右连接
-      right join...on...
-      右边的表显示全部数据
-      左边的表只显示匹配上的
-全连接
-    左右边都全部显示   </code></pre><p><em>/<br>CREATE DATABASE schooldb;<br>USE Schooldb;<br>#教师表<br>CREATE TABLE teacher(<br>   tid INT PRIMARY KEY AUTO_INCREMENT,<br>   tnam VARCHAR(20) NOT NULL,<br>   hiredate DATE,#入职日期<br>   sex VARCHAR(5)<br>)<br>#班级信息表<br>CREATE TABLE ClassInfo(<br>   cid INT PRIMARY KEY AUTO_INCREMENT,<br>   cnam VARCHAR(20) NOT NULL,<br>   grid INT, #年级编号<br>   beginyear VARCHAR(20)<br>)<br>#学生信息表<br>CREATE TABLE StudentInfo(<br>   sid INT PRIMARY KEY AUTO_INCREMENT,<br>   snam VARCHAR(20) NOT NULL,<br>   sex VARCHAR(5),<br>   age INT,<br>   birthday DATE,<br>   cid INT, #班级编号<br>   beginyear VARCHAR(20),#入学日期<br>   stel VARCHAR(15),<br>   address VARCHAR(100),<br>   email VARCHAR(50)<br>)<br>#课程表<br>CREATE TABLE course(<br>   coid INT PRIMARY KEY AUTO_INCREMENT,<br>   cnam VARCHAR(50) NOT NULL,#课程名<br>   tid INT    #讲授老师编号<br>)<br>#成绩表<br>CREATE TABLE score(<br>   scid INT PRIMARY KEY AUTO_INCREMENT,<br>   sid INT ,#学生学号<br>   coid INT, #课程编号<br>   score INT,<br>   remark VARCHAR(100) #备注<br>)<br>#年级表<br>CREATE TABLE grade(<br>  gid INT PRIMARY KEY AUTO_INCREMENT,<br>  gnam VARCHAR(50), #年级名<br>  major VARCHAR(100) #专业<br>)<br>#一次性插入多条语句<br>INSERT INTO teacher(tnam,hiredate,sex)<br>VALUES(‘张三’,’2017-09-01’,’男’),<br>(‘李四’,’2018-07-02’,’男’),<br>(‘王五’,’2016-08-16’,’男’);<br>INSERT INTO grade(gnam,major)<br>VALUES(‘18级’,’软信’),(‘19级’,’软信’)<br>,(‘18级’,’移动’),(‘19级’,’移动’);<br>INSERT INTO StudentInfo(snam,sex,age<br>,birthday,cid,beginyear,stel,address<br>,email) VALUES(‘崔一’,’男’,18,’2001-07-05’<br>,1,’2018’,’18867890987’,<br>‘河南省许昌市’,‘159078923@qq.com’),<br>(‘丁二’,’男’,19,’2000-08-05’<br>,2,’2018’,’18967890987’,<br>‘河南省许昌市’,‘156078923@qq.com’),<br>(‘丁三’,’男’,20,’1999-09-05’<br>,3,’2018’,’18877890987’,<br>‘河南省郑州市’,‘157078923@qq.com’),<br>(‘周三’,’女’,17,’2002-06-05’<br>,4,’2019’,’18177890987’,<br>‘河南省洛阳市’,‘157278923@qq.com’);<br>INSERT INTO StudentInfo(snam,sex,age<br>,birthday,cid,beginyear,stel,address<br>,email) VALUES(‘周四’,’女’,18,’2002-06-05’<br>,4,’2019’,’18177800087’,<br>‘河南省洛阳市’,‘157279923@qq.com’)<br>INSERT INTO ClassInfo(cnam,grid,<br>beginyear) VALUES(‘软信1’,1,’2018’)<br>,(‘移动1’,2,’2018’),(‘软信1’,3,’2019’),<br>(‘移动1’,4,’2019’);<br>INSERT INTO course(cnam,tid)<br>VALUES(‘计算机基础’,1),(‘前端基础’,2)<br>,(‘java基础’,3),(‘js基础’,3);<br>INSERT INTO score(sid,coid,score,remark)<br>VALUES(1,1,90,’无’),(1,2,75,’无’),<br>(1,3,59,’无’),(1,4,76,’无’)<br>,(2,1,93,’无’),(2,2,77,’无’),<br>(2,3,66,’无’),(2,4,78,’无’),<br>(3,1,87,’无’),(3,2,55,’无’),<br>(3,3,76,’无’),<br>(4,1,88,’无’),(4,2,66,’无’),<br>(4,3,90,’无’),(4,4,76,’无’);<br>#order by排序<br>#把StudentInfo表按年纪从小到大排序<br>SELECT * FROM StudentInfo ORDER BY<br>    age ASC;<br>#把StudentInfo表按年纪从大到小排序<br>SELECT * FROM StudentInfo ORDER BY<br>    age DESC;<br>#group by分组<br>#把某张表按照某个字段进行分组<br>#查询出每个学生的平均成绩，结果要<br>#显示的字段为，学生学号 平均成绩<br>SELECT sid,AVG(score) ‘平均成绩’<br>FROM score GROUP BY sid;<br>#group by … havig..筛选出来符合条件<br>#的组<br>#查询出全部及格学生的平均成绩<br>SELECT sid,AVG(score) ‘avg’ FROM score<br>GROUP BY sid HAVING MIN(score)&gt;60;<br>#查询出考试门数不够四门的学生学号<br>SELECT sid FROM score GROUP BY sid<br>    HAVING COUNT(</em>)&lt;4;<br>#查询出“计算机基础”的成绩<br>SELECT coid,score FROM score WHERE<br>coid=(<br>SELECT coid FROM course<br>             WHERE cnam=’计算机基础’);<br>#查询出每门课的平均成绩<br>SELECT coid,AVG(score)’平均成绩’ FROM<br>               score GROUP BY coid;<br>#查询出‘周三’学生的平均成绩<br>SELECT AVG(score) ‘平均成绩’ FROM<br>               score WHERE sid=(<br>SELECT sid FROM StudentInfo<br>               WHERE snam=’周三’);<br>#连接<br>#普通连接<br>SELECT * FROM StudentInfo s,score c<br>                      WHERE<br>                      s.sid=c.sid;<br>#查询出每个人的平均成绩，要显示的<br>#字段为，姓名 平均成绩<br>SELECT snam,AVG(score) FROM<br>             StudentInfo s,score c<br>             WHERE<br>             s.sid=c.sid<br>             GROUP BY s.sid;<br>#内连接<br>SELECT * FROM StudentInfo s<br>              INNER JOIN<br>              score c<br>              ON<br>              s.sid=c.sid;<br>SELECT snam,AVG(score) FROM<br>             StudentInfo s<br>             INNER JOIN<br>             score c<br>             ON<br>             s.sid=c.sid<br>             GROUP BY s.sid;</p>
-<p>#左连接<br>SELECT * FROM StudentInfo s<br>              LEFT JOIN<br>              score c<br>              ON<br>              s.sid=c.sid;<br>#查询出有不及格成绩的学生信息，<br>#缺考算不及格<br>SELECT * FROM StudentInfo WHERE sid<br>IN(<br>SELECT sid FROM score<br>          GROUP BY sid<br>          HAVING MIN(score)&lt;60<br>UNION<br>SELECT sid FROM score<br>             GROUP BY sid<br>             HAVING<br>             COUNT(<em>)&lt;<br>             (SELECT COUNT(</em>) FROM<br>               course));</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/23/MySQL第三次课/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL第二次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/22/MySQL第二次课/">MySQL第二次课</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/22/MySQL第二次课/" class="archive-article-date">
-  	<time datetime="2019-10-22T11:47:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/*<br>Mysql第二次课<br>   数据库设计的三大范式<br>   第一范式：<br>      每个字段的数据都是不可分割<br>      的最小的数据单元<br>   第二范式<br>      每张表只能描述一件事情<br>      每张表必须有主键<br>   第三范式<br>      非主键字段依赖于主键字段<br>      换句话说，非主键字段与<br>      主键字段要直接相关<br>  注意：设计表时，尽可能遵守规范<br>     但是，有时为了性能，会牺牲<br>     一点规范<br>  Mysql运算符<br>    算术运算符<br>       + - * /<br>    逻辑运算符<br>       and or !<br>    比较运算符<br>       &gt; &lt; &gt;= &lt;= &lt;&gt; !=<br> 聚合函数<br> count() 求行数<br> sum() 求一列的和<br> avg() 去平均值<br> max() 求最大值<br> min() 求最小值<br>Mysql常用关键字<br> in   查询在什么什么选项中的数据<br>      where name in(‘张三’,’李四’)<br>      把name等于张三，等于李四的都<br>      查询出来<br> not in<br>     where name not in(‘张三’,’李四’)<br>     把name不等于张三，不等于李四<br>     的都查询出来<br> distinct 去重<br> limit 查询出表的前几行<br> between…and..在什么什么之间<br> as<br><em>/<br>SELECT * FROM goods;<br>INSERT INTO goods(gnam,gprice)<br>           VALUES(‘吹风机’,89);<br>INSERT INTO goods(gnam,gprice)<br>           VALUES(‘外套’,200);<br>INSERT INTO goods(gnam,gprice)<br>           VALUES(‘外套’,220);<br>INSERT INTO goods(gnam,gprice)<br>           VALUES(‘吹风机’,78);<br>#查询出商品价格大于10的商品<br>SELECT * FROM goods<br>       WHERE gprice&gt;10;<br>#查询商品价格不等于10的商品信息<br>SELECT * FROM goods<br>       WHERE gprice&lt;&gt;10;<br>#查询商品价格大于10并且小于50的<br>#商品信息<br>SELECT * FROM goods WHERE<br>       gprice&gt;10 AND gprice&lt;50;<br>#查询出商品的数量<br>#字段名 as 新字段名 给列名<br>#重命名成新的列名<br>SELECT COUNT(</em>) AS ‘总数量’<br>          FROM goods;<br>#查询商品的总价格<br>SELECT SUM(gprice) ‘总价格’<br>             FROM goods;<br>#查询商品的平均价格<br>SELECT AVG(gprice) ‘平均价格’<br>             FROM goods;<br>#查询商品的最高价格<br>SELECT MAX(gprice) ‘最高价格’<br>             FROM goods;<br>#查询商品的最低价格<br>SELECT MIN(gprice) ‘最低价格’<br>             FROM goods;<br>#查询出商品名称是小熊雨伞，外套的<br>#都查询出来<br>SELECT * FROM goods WHERE<br>      gnam IN(‘小熊雨伞’,’外套’);<br>SELECT * FROM goods WHERE<br>      gnam NOT IN(‘小熊雨伞’,’外套’);<br>#把商品名字重复的去掉<br>SELECT DISTINCT gnam FROM goods;<br>#查询出表的前两行<br>#limit 0,2:0是行的下标，2是行数<br>#表的行的下标是由0开始的<br>SELECT * FROM goods LIMIT 0,2;<br>#查询商品价格大于10并且小于50的<br>#商品信息<br>SELECT * FROM goods WHERE gprice<br>      BETWEEN 10 AND 50;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/22/MySQL第二次课/">展开全文 >></a>
         </p>
       
 
