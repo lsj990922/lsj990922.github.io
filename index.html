@@ -152,6 +152,1242 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jsp面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/jsp面试题/">jsp面试题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/jsp面试题/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:43:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Jsp第一次课对应的面试题<br>1、C/S与B/S区别：<br>C/S (Client/Server，客户端/服务器端)架构的系统，其分为客户端和服务器端两层，用户在本地安装客户端软件，通过网络与服务器端相互通信。最典型的应用是QQ聊天软件<br>在B/S架构中，浏览器端与服务器端采用请求／响应模式进行交互<br>(1)浏览器接受用户输入：例如，用户在浏览器窗口输入用户名、密码<br>(2)浏览器向服务器端发送请求：浏览器把请求消息（包含用户名、密码等信息），发送到服务器端，等待服务器端的响应。<br>(3)数据处理：服务器端通常使用服务器端脚本（如JSP等）进行数据库访问，查询数据，并输出查询结果。<br>(4)发送响应：服务器向浏览器发送响应消息(一般是动态生成后的HTML页面），并由浏览器解析HTML文件，呈现结果界面。<br>2、URL的组成<br>   URL为统一资源定位符<br>   组成部分为：协议 主机名（有时包含端口号） 路径<br>3、tomcat的介绍以及目录结构<br>Tomcat是一个免费的开源的Web容器，也就是我们通常说的网站服务器软件<br>使用步骤：解压、配置、部署项目、启动服务器<br>目录结构：<br>目录    说明<br>/bin    存放各种平台下用于启动和停止Tomcat的脚本文件<br>/conf    存放Tomcat服务器的各种配置文件<br>/lib    存放Tomcat服务器所需的各种JAR文件<br>/logs    存放Tomcat的日志文件<br>/temp    Tomcat运行时用于存放临时文件<br>/webapps    Web应用的发布目录<br>/work    Tomcat把由JSP生成的Servlet存放于此目录下</p>
+<p>4、创建java web项目的步骤<br>右击–&gt;file菜单—》new  —&gt;选择web project —》写好之后把项目部署在服务器上<br>5、java web项目的目录结构</p>
+<p>Jsp第二次课对应的面试题<br>1、掌握JSP页面的组成<br>JSP是运行在服务器端的程序，负责java web项目中的数据展示，以及前后数据的中转与交互<br>JSP页面中，可以写html、css、js代码、java代码、el表达式、jstl标签，jsp标签<br>2、MVC三层架构<br>MVC的全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，是一种软件设计模式。它是用一种业务逻辑、数据与界面显示分离的方法来组织代码，视图组件发请求给控制器，控制器调用模型处理完成后，交给视图组件显示。<br>3、JSP的九个隐式对象？<br>变量名                    真实类型                作用<br>        pageContext                PageContext            当前页面共享数据，还<br>                        可以获取其他八个内置对象</p>
+<p>request            HttpServletRequest         一次请求访问的多个资源(转发)<br>          session                    HttpSession             一次会话的多个请求间<br>          application                ServletContext             所有用户间共享数据<br>          response                HttpServletResponse     响应对象<br>           page                      Object                 当前页面(Servlet)的对象this<br>            out                     JspWriter             输出对象，数据输出到页面上<br>           config                    ServletConfig                Servlet的配置对象<br>         exception                 Throwable                异常对象<br>4、JSP的执行过程<br>(1)翻译阶段：当Web容器接收到JSP请求时，首先会对JSP文件进行翻译，将编写好的JSP文件通过JSP容器转换成可识别的Java源代码。<br>(2)编译阶段：经过翻译后的JSP文件相当于编写好的Java源文件，此时仅有Java源文件是不够的，必须要将Java源文件编译成可执行的字节码文件，所以Web容器处理JSP请求的第二阶段就是编译。<br>(3)执行阶段：经过翻译和编译两个阶段，生成了可执行的二进制字节码文件，此时进入执行阶段。当执行结束后，得到处理请求的结果，把生成的结果页面返回到浏览器客户端显示。<br>5、jdbc的执行过程<br>加载JDBC驱动、与数据库建立连接、发送 SQL 语句，并得到返回结果、处理返回结果、 数据库访问结束后，进行资源释放<br>6、简述什么是Servlet<br>Servlet是用Java编写的类，运行在服务器端，可以接收http请求生成动态Web内容。jsp经过翻译后就是Servlet类。<br>用户在jsp页面上输入数据，可以提交给servlet做处理，java代码读到的数据，可以通过servlet交给jsp页面去展示。这在项目中就充当了，控制与中转的功能。<br>创建后要配置Servlet<br>在web.xml中配置：</p>
+<!--配置Servlet -->
+<servlet>
+<servlet-name>ServletDemo1</servlet-name>
+<servlet-class>com.dzqc.web.servlet.ServletDemo1</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ServletDemo1</servlet-name>
+<url-pattern>/demo1</url-pattern>
+</servlet-mapping>
+
+<p>6、servlet生命周期</p>
+<ol>
+<li>被创建：执行init方法，只执行一次</li>
+<li>提供服务：执行service方法，执行多次，servelt核心方法</li>
+<li>被销毁：执行destroy方法，只执行一次<br>7、servlet四大域对象<br>pageContext域对象<br>Request域对象 对应的类为HttpRequestServlet<br>Http协议中，包含1. 请求行2. 请求头3. 请求空行 4. 请求体。<br>可以通过request对象分别获取里边的内容<br>session域对象    对应的类为HttpSession<pre><code>Session为服务器端会话技术，一次访问会创建一个session对象</code></pre>application域对象 对应的类为ServletContext<pre><code>Application为能跨客户端的，最大域对象</code></pre>8、请简述response对象<br>响应对象，用于服务器端发送给客户端数据，<br>响应分为  1. 响应行     组成：协议/版本 响应状态码 状态码描述<br>2、响应头     格式：头名称： 值</li>
+<li>响应空行</li>
+<li>响应体:传输的数据<br>Jsp第三次课对应的面试题</li>
+</ol>
+<p>1、cookie与session概述<br>Cookie<br>客户端会话技术，将数据保存到客户端<br>使用步骤：<br>        1. 创建Cookie对象，绑定数据<br>            new Cookie(String name, String value)<br>        2. 发送Cookie对象<br>            response.addCookie(Cookie cookie)<br>        3. 获取Cookie，拿到数据<br>            Cookie[]  request.getCookies()<br>     可以通过setMaxage方法，设置cookie的最大存活时间<br>Session<br>服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。HttpSession<br>基本使用：</p>
+<ol>
+<li>获取HttpSession对象：<pre><code>HttpSession session = request.getSession();</code></pre></li>
+<li>使用HttpSession对象：<pre><code>Object getAttribute(String name)  
+void setAttribute(String name, Object value)
+void removeAttribute(String name)  </code></pre> Session可以主动销毁，也可以被动销毁<br>session与Cookie的区别：<pre><code>1. session存储数据在服务器端，Cookie在客户端
+2. session没有数据大小限制，Cookie有
+3. session数据安全，Cookie相对于不安全</code></pre>Jsp第四次课对应的面试题<br>1、转发与重定向的区别<br>转发：request.getRequestDispatcher()是容器中控制权的转向，在客户端浏览器地址栏中不会显示出转向后的地址；服务器内部转发，整个过程处于同一个请求当中。<br>重定向：response.sendRedirect()则是完全的跳转，浏览器将会得到跳转的地址，并重新发送请求链接。这样，从浏览器的地址栏中可以看到跳转后的链接地址。不在同一个请求。重定向，实际上客户端会向服务器端发送两个请求。<br>转发forward()更加高效，在可以满足需要时，尽量使用RequestDispatcher.forward()方法。<br>RequestDispatcher是通过调用HttpServletRequest对象的getRequestDispatcher()方法得到的，是属于请求对象的方法。<br>2、El表达式与jstl标签<ol>
+<li>概念：Expression Language 表达式语言</li>
+</ol>
+</li>
+<li>作用：替换和简化jsp页面中java代码的编写</li>
+<li>语法：${表达式}</li>
+<li>使用：<pre><code>1. 运算：
+    运算符：
+        1. 算数运算符： + - * /(div) %(mod)
+        2. 比较运算符： &gt; &lt; &gt;= &lt;= == !=
+        3. 逻辑运算符： &amp;&amp;(and) ||(or) !(not)
+        4. 空运算符： empty
+         功能：用于判断字符串、集合、数组对象是否为null或者长度是否为0
+            ${empty list}:判断字符串、集合、数组对象是否为null或者长度为0
+            ${not empty str}:表示判断字符串、集合、数组对象是否不为null </code></pre>并且 长度&gt;0<pre><code>2. 获取值
+   1. el表达式只能从域对象中获取值
+   2. 语法：
+       1. ${域名称.键名}：从指定域中获取指定键的值
+           域名称：
+               1. pageScope        --&gt; pageContext
+               2. requestScope     --&gt; request
+               3. sessionScope     --&gt; session
+               4. applicationScope --&gt; application（ServletContext）
+           举例：在request域中存储了name=张三
+           获取：${requestScope.name}</code></pre></li>
+</ol>
+<p>2.${键名}：表示依次从最小的域中查找是否有该键对应的值，直到找<br>到为止。<br>                3. 获取对象、List集合、Map集合的值<br>                    1. 对象：${域名称.键名.属性名}<br>                        本质上会去调用对象的getter方法<br>                    2. List集合：${域名称.键名[索引]}<br>                    3. Map集合：<br>                        ${域名称.键名.key名称}<br>                        ${域名称.键名[“key名称”]}<br>         3. 隐式对象：<br>             el表达式中有11个隐式对象<br>             pageContext：<br>                 获取jsp其他八个内置对象<br>                     ${pageContext.request.contextPath}：动态获取虚拟目录<br>2.JSTL表达式</p>
+<ol>
+<li>概念：JavaServer Pages Tag Library  JSP标准标签库<br>   是由Apache组织提供的开源的免费的jsp标签&lt;标签&gt;<ol start="2">
+<li>作用：用于简化和替换jsp页面上的java代码        </li>
+<li>使用步骤：<ol>
+<li>导入jstl相关jar包</li>
+<li>引入标签库：taglib指令：  &lt;%@ taglib %&gt;</li>
+<li>使用标签</li>
+</ol>
+</li>
+<li>常用的JSTL标签<ol>
+<li>if:相当于java代码的if语句<ol>
+<li>属性：<br>test 必须属性，接受boolean表达式<pre><code>如果表达式为true，则显示if标签体内容，如果为false，则不显示</code></pre>标签体内容<pre><code>一般情况下，test属性值会结合el表达式一起使用</code></pre><ol start="2">
+<li>注意：<br> c:if标签没有else情况，想要else情况，则可以在定义一个c:if标签</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>choose:相当于java代码的switch语句<ol>
+<li>使用choose标签声明                     相当于switch声明</li>
+<li>使用when标签做判断                     相当于case</li>
+<li>使用otherwise标签做其他情况的声明        相当于default</li>
+</ol>
+</li>
+<li>foreach:相当于java代码的for语句<br>Jsp第五次课对应的面试题<br>1、过滤器Filter概述<br>web中的过滤器：当访问服务器的资源时，过滤器可以将请求拦截下来，完成一些特<br>殊的功能。<br>过滤器的作用：<br> 一般用于完成通用的操作。如：登录验证、统一编码处理、敏感字符过滤…</li>
+</ol>
+</li>
+<li>步骤：<ol>
+<li>定义一个类，实现接口Filter</li>
+<li>复写方法</li>
+<li>配置拦截路径<ol>
+<li>web.xml</li>
+<li>注解<br>2、过滤器执行流程</li>
+<li>执行过滤器</li>
+<li>执行放行后的资源</li>
+<li>回来执行过滤器放行代码下边的代码  </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>过滤器生命周期方法<pre><code>1. init:在服务器启动后，会创建Filter对象，然后调用init方法。只执行一次</code></pre>。用于加载资源<pre><code>2. doFilter:每一次请求被拦截资源时，会执行。执行多次
+3. destroy:在服务器关闭后，Filter对象被销毁。如果服务器是正常关闭，则</code></pre>会执行destroy方法。只执行一次。用于释放资源</li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/jsp面试题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jsp试题题库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/jsp试题题库/">jsp试题题库</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/20/jsp试题题库/" class="archive-article-date">
+  	<time datetime="2019-12-20T00:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jSP复习题库</p>
+<p>1、下列EL表达式语法结构正确的是（）<br>A、$(name)<br>B、${name}<br>C、$[name]<br>D、$[{name}]<br>2、为访问jsp的内置对象，EL表达式可以通过（）来访问<br>A、pageContext<br>B、page<br>C、html<br>D、dom<br>3、为实现Java语言中if-else语句作用需使用下列哪些标签<br>A、&lt;c:if&gt;<br>B、&lt;c:choose&gt;、 &lt;c:when&gt;和&lt;c:otherwise&gt;<br>C、&lt;c:choose&gt;<br>D、&lt;c:all&gt;<br>4、在Servlet里，能正确获取session的语句是（）<br>A、HttpSession session = request.getSession(true);<br>B、HttpSession session = response.getHttpSession(true);<br>C、HttpSession session = response.getSession(true);<br>D、HttpSession session = request.getHttpSession(true);</p>
+<ol>
+<li>一个servlet的生命周期不包括（   ）方法？<br>A、init()方法                B、invalidate()方法<br>C、service()方法            D、destroy()方法</li>
+<li>HttpServletRequest对象的（    ）方法能够获取一个表单参数的值<br>A、getQuaryString()            B、getPathInfo()<br>C、getParameter()            D、getAttribute()</li>
+<li>JavaBean的scope取什么值可使该javabean被多个用户共享，即和web<br>应用有相同的生命周期？（    ）<br>A、page                        B、request<br>C、session                    D、application</li>
+<li>以下关于EL和JSTL说法错误的是？（    ）<br>A、EL是一种简洁的数据访问语言<br>B、EL表达式基本形式：${var}<br> C、JSTL的全称是JavaServer Pages Standard Tag Library<br>D、JSTL只有一个Core核心标签库                                </li>
+<li>在J2EE中，test.jsp文件中有如下一行代码：<br>&lt;jsp:useBean id=”user” scope=”_____” type=”com.UserBean”/&gt;<br>要使user对象中一直存在于对话中，直至其终止或被删除为止，下划线中应填入（   ）。<br>A、page                      B、 request<br>C、session                D、application</li>
+<li>给定一个Servlet的代码片段如下：<br> public void doGet(HttpServletRequest request,HttpServletResponse response)<br>throws ServletException,IOException{    </li>
+</ol>
+<hr>
+<p>out.println(“hi kitty!”);<br>out.close();<br>}<br>运行次Servlet时输出如下：<br>    hi kitty!<br>则应在此Servlet下划线处填充如下代码。(    )<br>A、PrintWriter out = response.getWriter();<br>B、PrintWriter out = request.getWriter();<br>C、OutputStream out = response.getOutputStream();<br>D、OutputStream out = request.getWriter();<br>7.  J2EE中，以下关于HttpServlet的说法错误的是（  ）。<br>A、HttpServlet是一个抽象类<br>B、HttpServlet类扩展了GenericServlet类<br>C、HttpServlet类的子类必须至少重写service方法<br>D、HttpServlet位于javax.servlet.http包中<br>8.    J2EE中，JSP EL表达式：${(10*10) ne 100}的值是（   ）。<br>A、0                  B、true<br>C、false              D、1<br>9. 在Servlet里，能正确获取session的语句是（   ）。<br>A、HttpSession session = request.getSession();<br>B、HttpSession session = request.getHttpSession();<br>C、HttpSession session = response.getSession();<br>D、HttpSession session = response. getHttpSession ();<br>10. 在J2EE中，在一个JSP文件中，有表达式&lt;%=2+3 %&gt;，它将输出（）。<br>A、2+3                     B、5<br>C、23                     D、不会输出，因为表达式是错误的<br>11. 给定JSP程序源码如下，可以在下划线处插入并且能够正确输出WELCOME，JACK的语句是（）。   </p>
+<html>
+<body>
+<% string name="JACK" ; %>
+WELCOME，______
+</%></body>
+</html>
+A、name                  B、<%=name%>
+C、out.println(name);    D、<%=out.println(name); %>
+12. 在J2EE中，重定向到另一个页面，以下（  ）语句是正确的。   
+A、request.sendRedirect("http://www.jb-aptech.com.cn");
+B、request.sendRedirect();
+C、response.sendRedirect("http://www.jb-aptech.com.cn");
+D、response.sendRedirect();
+13. J2EE中，JSP EL 表达式：${user.loginName}执行效果等同于（ ）。
+A、<% = user.getloginname()%>    
+B、<%user.getloginname();%>
+C、<% = user.loginname%>
+D、<% user.loginname;%>
+14.给定JSP程序源码如下：
+<html>
+    <% int count="1;%"> _______
+</%></html>    
+以下（   ）语句可以在下划线处插入，并且运行后输出结果是：1。    
+A、 <%=++count %>            B、 <% ++count; %>
+C、<% count++; %>           D、<%=count++ %>
+15、Servlet程序的入口点是：（  ） 
+A、init（）                 B、main（） 
+C、service（）                D、doGet（） 
+16. JavaBean编写规范不正确的是(    )
+A、一个JavaBean类必须有一个空构造方法
+B、一个JavaBean类不应有公共实例变量（属性）
+C、属性是公共的
+D、一个属性值应该通过一组存取方法（getXxxx和setXxxx）来访问
+17. 直接敲入url的请求方式（   ）
+A、service                     B、get  
+C、post                       D、doGet
+18. 在JSP中包含其它文件的指令是(    )
+A、taglib                   B、page   
+C、include                  D、forward
+19. request 对象的取属性值的方法是(    ) 
+A、setContentType()      
+B、getAttribute(String name)
+C、setAttribute(String name，Object value)
+D、getParameter(String name)
+20. 在JSP中注释的写法正确的是：
+A、<!-- 注释 -->  
+B、<!% 注释 %>  
+C、<%-- 注释 --%> 
+D、<！%-- 注释 --%>
+1.在JSP中，(    )动作用于将请求转发给其他JSP页面。
+A. Forward
+B. Include
+C. useBean                        
+D. setProperty
+2.在Servlet里，能正确获取session的语句是（   ）。   
+A. HttpSession session = request.getSession()
+B. HttpSession session = request.getHttpSession()
+C. HttpSession session = response.getSession()
+D. HttpSession session = response. getHttpSession ()
+3.MVC模型包含模型层、视图层和控制器层，在下列组件中扮演控制器角色的是（    ）。
+A. JSP                       
+B. Servlet
+C. JavaBean                       
+D. HTML
+4.request对象的取属性值的方法是(    ) 
+A. setContentType()      
+B. getAttribute(String name)
+C. setAttribute(String name，Object value)
+D. getParameter(String name)
+5.下列不是JSP开发工具的是（    ）
+A. JBuilder
+B. IBM WebSphere
+C. MyEclipse 
+D. Firework
+6.对于JSP中的声明<%! %>的说法错误的是：（   ）
+A.一次可声明多个变量和方法，只要以“;”结尾就行
+B.一个声明仅在一个页面中有效
+C.声明的变量将作为局部变量
+D.在该声明中声明的变量将在JSP页面初始化时初始化
+7.下列不是JSP内置对象的是（     ）
+A.Request
+B.Applicate
+C.Out
+D.page
+8.下述选项中不属于JDBC基本功能的是(    )
+A.与数据库建立连接             
+B.提交SQL语句            
+C.处理查询结果                
+D.数据库维护管理
+9.在JSP中注释的写法正确的是：（   ）
+A．<!-- 注释 -->  
+B．<!% 注释 %>  
+C．<%-- 注释 --%> 
+D．<！%-- 注释 --%>
+10.J2EE中，以下关于HttpServlet的说法错误的是（    ）。
+A.HttpServlet是一个抽象类
+B.HttpServlet类的子类必须至少重写service方法
+C.HttpServlet类扩展了GenericServlet类            
+D.HttpServlet位于javax.servlet.http包中
+11.直接敲入url的请求方式（   ）
+A.  service             B.  get  
+C.  post               D.  doGet
+12.下面哪个不是分层开发的优势(    )。
+A.职责划分清晰                   
+B.无损替代
+C.复用代码                    
+D.提高了系统内部的依赖程度
+13.给定某 程序的片断如下，用户在浏览器地址栏中键入正确的请求URL并回车后，在控制台上显示的结果是（    ） 
+public void doGet(HttpServletRequest request,HttpServletResponse response) 
+throws ServletException,IOException{ 
+System.out.println(“get”); 
+} 
+Public void doPost(HttpServletRequest request,HttpServletResponse response) 
+Throws ServletException,IOException{ 
+System.out.println(“post”); 
+}
+A.get         B.  post         C.  “get”        D. “post”
+14.则应在此Servlet下划线处填充如下代码。(    )
+A. PrintWriter out = response.getWriter();
+B. PrintWriter out = request.getWriter();
+C. OutputStream out = response.getOutputStream();
+D. OutputStream out = request.getWriter();
+15.以下关于EL和JSTL说法错误的是？（    ）
+A．EL是一种简洁的数据访问语言
+B．EL表达式基本形式：${var}
+C．JSTL的全称是JavaServer Pages Standard Tag Library
+D．JSTL只有一个Core核心标签库    
+16.在JSP中，下列（     ）语句可以获取页面请求中一个文本框的输入（文本框的名称为title）
+A． request.getParameter(“title”)
+B． request.getAttribute(“title”)
+C． request.getParameterValues(“title”)
+D． request.getParameters(“title”)
+17.Servlet程序的入口点是：（  ） 
+A．init（） 
+B．main（） 
+C．service（）
+D．doGet（） 
+18.下面哪个不是分层开发的优势(    )。
+A. 职责划分清晰                   
+B. 无损替代
+C. 复用代码                    
+D. 提高了系统内部的依赖程度
+19.下列不属于session跟踪的方法是：（    ）
+A. URL重写。
+B. 使用全局变量。
+C. 使用表单隐藏字段
+D. 使用Servlet API
+20.下面对JDBC API描述错误的是(    )。
+A. DriverManager接口的getConnection( )方法可以建立和数据库的连接
+B. Connection接口的createStatement( )方法可以创建一个Statement对象
+C. Statement接口的executeQuery( )方法可以发送select语句给数据库            
+D. ResultSet接口表示执行insert语句后得到的结果集
+1.  下列不属于session跟踪的方法是：（  B  ）
+URL重写。    
+使用全局变量
+使用表单隐藏字段
+使用Servlet API
+2.  <form method="______" action="search.jsp">…</form>.横线中可以填入的单词是（ A  ）
+post  
+send        
+out            
+message
+3.  <input type="_______" name="”inputname”" value="”inputvalue”">.横线处不能填入的单词是（  D  ）
+text            
+submit         
+radio           
+form
+4.  一个servlet的生命周期不包括（  B ）方法？
+init()方法
+invalidate()方法
+service()方法
+destroy()方法
+5.  给定一个Servlet的代码片段如下：
+    public void doGet(HttpServletRequest request,HttpServletResponse response)
+throws ServletException,IOException{    
+______
+out.println(“hi kitty!”);
+out.close();
+}
+运行次Servlet时输出如下：
+    hi kitty!
+则应在此Servlet下划线处填充如下代码。(   A )
+PrintWriter out = response.getWriter();
+PrintWriter out = request.getWriter();
+OutputStream out = response.getOutputStream();
+OutputStream out = request.getWriter();    
+6. 下面哪个属于 JSTL 中的条件标签( C   )。
+<c:out>
+<c:if>
+<c:url>
+<c:catch>
+7.  J2EE中，JSP EL 表达式：${user.loginName}执行效果等同于（A ）。
+<% = user.getloginname()%>    
+<%user.getloginname();%>
+<% = user.loginname%>
+<% user.loginname;%>
+8.  对于JSP中的声明<%! %>的说法错误的是：（ C  ）
+一次可声明多个变量和方法，只要以“;”结尾就行
+一个声明仅在一个页面中有效
+声明的变量将作为局部变量
+在该声明中声明的变量将在JSP页面初始化时初始化
+9.  2EE中，JSP EL表达式：${(10*10) ne 100}的值是（C   ）。    
+0                                    
+true
+false
+1
+10. 以下关于EL和JSTL说法错误的是？（ D   ）
+A、EL是一种简洁的数据访问语言
+B、EL表达式基本形式：${var}
+C、JSTL的全称是JavaServer Pages Standard Tag Library
+D、JSTL只有一个Core核心标签库    
+1、下面哪一个不是JSP本身已加载的基本类？（b  ）
+A、java.lang.*    B、java.io.*  C、javax.servlet.*  D、javax.servlet.jsp.*
+2、对于预定义<%!预定义%>的说法错误的是：（c）
+A、一次可声明多个变量和方法，只要以“;”结尾就行   
+B、一个声明仅在一个页面中有效
+C、声明的变量将作为局部变量         
+D、在预定义中声明的变量将在JSP页面初始化时初始化
+3、从 “员工” 表的“姓名”字段中找出名字包含“玛丽”的人，下面哪条select语句正确：（ D ）
+A、 Select * from员工 where 姓名 =’_玛丽_’  
+B 、Select * from员工 where 姓名 =’%玛丽_’
+C、 Select * from员工 where 姓名 like ‘_玛丽%’  
+D、 Select * from员工 where 姓名 like ‘%玛丽%’
+4、下述选项中不属于JDBC基本功能的是：（ D ）
+A.与数据库建立连接  
+B.提交SQL语句   
+C.处理查询结果  
+D.数据库维护管理
+5、在JSP中使用<jsp:getproperty>标记时，不会出现的属性是：（ c ）
+A.name     
+B.property     
+C.value        
+D.以上皆不会出现
+6、Page指令用于定义JSP文件中的全局属性，下列关于该指令用法的描述不正确的是：（D  ）
+A.<%@ page %>作用于整个JSP页面。
+B.可以在一个页面中使用多个<%@ page %>指令。
+C.为增强程序的可读性，建议将<%@ page %>指令放在JSP文件的开头，但不是必须的。
+D.<%@ page %>指令中的属性只能出现一次。
+7、在JSP中调用JavaBean时不会用到的标记是：（ A ）
+ A.<javabean>     
+B.<jsp:usebean>    
+C.<jsp:setproperty>       
+D.<jsp:getproperty>
+8、关于JavaBean正确的说法是：（  A）
+A、Java文件与Bean所定义的类名可以不同，但一定要注意区分字母的大小写
+B、在JSP文件中引用Bean，其实就是用<jsp:usebean>语句
+C、被引用的Bean文件的文件名后缀为.java 
+D、Bean文件放在任何目录下都可以被引用
+9、Servlet程序的入口点是：（A  ）
+A、init（）  B、main（）  C、service（）  D、doGet（）
+10、不能在不同用户之间共享数据的方法是（A  ）
+A、通过cookie  B、利用文件系统   C、利用数据库     
+D、通过ServletContext对象
+1、下面关于动静资源说法错误的是？( C  )
+A、HTML+CSS+JavaScript属于静态资源
+B、动态资源为一段服务程序，运行后，生成的数据文件
+C、js属于动态资源
+D、jsp+servlet属于动态web技术
+2、当利用request的方法获取Form中元素时，默认情况（ A）
+下字符编码是哪个
+A、ISO-8859-1
+B、GB2312
+C、GB3000
+D、ISO-8259-1
+3.关于jsp访问数据库说法正确的为（ D ）
+A、jsp不能直接访问数据库
+B、Jsp访问数据库第一步为连接数据库服务器
+C、Jsp访问数据库不需要关闭资源
+D、Jsp访问数据库第二步为连接数据库服务器
+4.用myeclipse写项目时，WebRoot目录是什么( B )
+A、放的java源码
+B、站点的根路径
+C、仅用于配置类加载器
+D、仅存放编译过之后的代码
+5.Page指令用于定义JSP的全局属性，下面关于指令描述不正确的是(   D)
+A、<%@page%>作用于整个JSP页面
+B、可以在页面中使用多个<%@page指令%>
+C、为了增强程序的可读性，最好将<%@page%>指令放在开头，但不是必须的
+D、<%@page%>指令只能出现一次
+7.JSP应用程序配置文件的根元素为(C)
+A、<web>
+B、<web-inf>
+C、<web-app>
+D、<webroot>
+8.Http的中文含义为
+A、统一资源定位器
+B、简单邮件传输协议
+C、超文本传输协议
+D、网络套接字
+9.JSP中的隐式注释为_?
+A、//注释内容
+B、<!—注释内容-->
+C、<%--注释内容--%>
+D、/*注释内容*/
+10.创建JSP应用程序时，配置文件web.xml应该在程序下的哪个目录中。
+A、admin
+B、WebContent
+C、WEB-INF
+D、WebRoot
+11.在JSP中如果要导入java.util.*包要使用什么指令
+A、page
+B、taglib
+C、include
+D、forward
+13.什么是动态网页？
+A、有js的网页
+B、与后台有交互的
+C、有css3动画的网页
+D、加jquery动画的网页
+14.对于分页查询， 以下说法不正确的是(  B  ）
+A、可以减轻服务器压力
+B、对于程序开销极大
+C、以提高用户体验
+D、对于不同数据库有不同的SQL指令
+15.在JSP中使用JDBC语句访问数据库，正确导入SQL类库的语句是（A）
+A、<%@ page import="java.sql.*" %>
+B、<%@ page import="sql.*" %>
+C、<% page import="java.sql.*" %>
+D、<%@ import="java.sql.*" %>
+16.在JSP中，使用（  ）对象的（  ）方法可完成网页重定向(C)
+A、request,getRequestDispatcher()
+B、request,forward()
+C、response,sendRedirect()
+D、response,setRequestDispatcher()
+17.JSP中存在如下代码：<%="2"+"4" %>，运行该JSP后，以下说法正确的是( C )
+A、没有任何输出
+B、6
+C、24
+D、指令将引发错误
+5、在JSP页面中用户创建对象，我们可以把它放到一个范围内，然后在这个范围内我们可以访问这些对象。在JSP中，对象有四种范围，从大到小分别是（）
+A、application session request page
+B、session、application、request、page
+C、application request session page
+D、application page session request
+6、对于一个session来说我们描述正确的是（）
+A、一个session对应一个浏览器，浏览器关闭session就销毁了
+B、服务器为每一个浏览器分配一个session，但是session不会再浏览器关闭的时候销毁。只有过期或服务器关闭才会销毁
+C、一个session不对应一个浏览器，一台计算机只有一个session
+D、以上都不对
+7、释放session对象时，使用session对象的（）方法
+A、invalidate（）
+B、delete（）
+C、clear（）
+D、remove（）
+8、我们第一次访问服务器的时候，如果只是通过请求连接一个jsp页面，不提交任何信息，会触发下面哪个事件（）
+A、建立application
+B、建立post
+C、建立session
+D、以上都不是
+9、如果我们想把session销毁应该用下面的哪个方法（）
+A、kill
+B、end
+C、destroy
+D、invalidate
+10、session对象的（）方法用于设置会话的超时时间。
+A、session.setAttribute(“time”,30);
+B、session.setMaxTime(30);
+C、session.getMaxInactiveInterval();
+D、session.setMaxInactiveInterval(30);
+11、session对象的（）方法用于判断是否为开始新会话
+A、isNewSessionID （）
+B、begin（）
+C、invalidate（）
+D、isNew（）
+12、不能在不同用户之间共享数据的方法是（）
+A、利用文件系统
+B、利用数据库
+C、通过ServletContext对象
+D、通过cookie
+13、cookie由Netscape公司发明，是最常用的跟踪用户会话的方式。它是由（）产生，发送给（），下面正确的是（）
+A、客户端浏览器服务端
+B、服务端客户端浏览器
+C、客户端浏览器客户端浏览器
+D、服务端服务端
+14、WEB应用中，常用的会话跟踪方法不包括（）
+A、隐藏表单域
+B、Cookie
+C、有状态HTTP协议
+D、URL重写
+15、web应用需要额外的技术才能让服务器识别两次请求是否来自同一个（），会话跟踪技术使得Web应用程序可以保持（）状态，下面正确的是（）
+A、客户端，客户端
+B、服务端，服务端
+C、客户端，服务端
+D、服务端，客户端
+16、MVC模式中，模型对应的组件在（）
+A、JSP
+B、Servlet
+C、pojo
+D、JavaBean
+17、MVC模式中，M（模型层）指的是（）
+A、实体类
+B、Service层
+C、dao层
+D、以上都是
+18、Model2模式(MVC)是在JSP+JavaBean的设计模式基础上加入（）来实现程序控制层
+A、Jsp
+B、JavaBean
+C、Servlet
+D、以上都不对
+19、MVC模式中，视图对应的组件是（）
+A、JSP或HTML文件
+B、Servlet
+C、JavaBean
+D、web.xml
+20、MVC模式中，控制器的作用是（）
+A、从模型中获取数据并指定这些数据应该如何表现
+B、控制器负责转发请求，对请求进行处理
+C、负责处理业务逻辑
+D、以上都不是
+21、MVC设计模式的优点不包括（）
+A、各司其职，互不干涉
+B、利于分工
+C、利于重用和扩展
+D、降低了开发工作量
+22、Servlet通常作为MVC模式中的（）层
+A、模型
+B、视图
+C、控制
+D、逻辑
+23、关于MVC设计模式，下列说法正确的是（）
+A、M是视图，V是控制器，C是模型
+B、M是控制器，V是模型，C是视图
+C、M是模型，V是视图，C是控制器
+D、以上都不对
+24、Model2模式是在Model1的设计模式基础上加入()来实现程序控制层
+A、JSP页面
+B、Servlet
+C、JavaBean
+D、Filter
+25、Model1模式的缺陷是（）
+A、降低了程序的可维护性、可扩展性
+B、不利于分工
+C、html和java代码混杂，阅读性差
+D、以上都有
+26、Model1模式中JSP页面的作用是（）
+A、做为页面并展示数据
+B、做控制器接收请求
+C、调用相应的JavaBean处理业务逻辑
+D、以上都有
+27、Servlet生命周期中init()方法执行（）次
+A、不执行
+B、0
+C、1
+D、无数次
+28、Servlet的实例是由（）创建的
+A、程序员
+B、用户
+C、浏览器
+D、web容器
+29、ServletConfig接口的（）方法可以获取初始化参数
+A、getParameter()
+B、getInitData()
+C、getInitParameter()
+D、getAttribute()
+30、通常如果需要编写Servlet就要继承（）类
+A、HttpServlet
+B、ServletConfig
+C、GenericServlet
+D、Servlet
+31、JSP所转换成的class文件在tomcat目录的（）文件夹下
+A、webapps
+B、temp
+C、lib
+D、work
+32、JSP和Servlet的关系是（）
+A、JSP会被翻译成Servlet
+B、Servlet就是JSP
+C、继承关系
+D、没有关系，因为前者是页面，后者是java类
+33、在元素中增加（）元素可以指定在容器启动时Servlet的加载次序
+A、<load-on-start>
+B、<run-on-startup>
+C、<load-when-startup>
+D、<load-on-startup>
+34、配置Servlet时的作用是？
+A、指定Servlet的名称
+B、指定Servlet的类
+C、指定Servlet的URL
+D、以上都不对
+35、部署Servlet需要在部署描述文件中添加哪两个元素？
+A、<servlet>,<servlet-config>
+B、<servlet-name>,<url-pattern>
+C、<servlet>,<servlet-mapping>
+D、<servlet-class>,<servlet-mapping>
+36、部署Servlet需要在哪个文件中添加Servlet配置？
+A、servlet.xml
+B、config.xml
+C、web.xml
+D、application.xml
+37、Servlet主要用于（）
+A、处理客户端请求并做出响应
+B、打开并显示网页内容
+C、连接数据库
+D、页面跳转
+38、Servlet是一个符合特定规范的java程序，是一个基于java技术的web组件，运行在（）
+A、客户端
+B、服务器端
+C、浏览器中
+D、以上都不是
+39、下列说法错误的是
+A、Jsp有四大域对象
+B、一般有三种会话管理技术
+C、Jsp有九大内置对象
+D、会话结束application对象也随之消亡
+40、下面哪个对象是用于发送请求的
+A、out
+B、response
+C、request
+D、application
+41、下列关于session说法错误的是
+A、服务器端不会主动销毁session
+B、用户退出session对象失效
+C、用户长时间不操作会导致session销毁
+D、session只存在于服务器端
+42、下列哪个对象是对用户请求做出回应
+A、request
+B、response
+C、application
+D、session
+43、下面关于动静资源说法错误的是？
+A、HTML+CSS+JavaScript属于静态资源
+B、动态资源为一段服务程序，运行后，生成的数据文件
+C、js属于动态资源
+D、jsp+servlet属于动态web技术
+44、当利用request的方法获取Form中元素时，默认情况
+下字符编码是哪个
+A、ISO-8859-1
+B、GB2312
+C、GB3000
+D、ISO-8259-1
+45、关于jsp访问数据库说法正确的为
+A、jsp不能直接访问数据库
+B、Jsp访问数据库第一步为连接数据库服务器
+C、Jsp访问数据库不需要关闭资源
+D、Jsp访问数据库第二步为连接数据库服务器
+46、下面哪个HTTP状态码意思为资源找不到
+A、200
+B、500
+C、404
+D、301
+47、用myeclipse写项目时，WebRoot目录是什么
+A、放的java源码
+B、站点的根路径
+C、仅用于配置类加载器
+D、仅存放编译过之后的代码
+48、Page指令用于定义JSP的全局属性，下面关于
+指令描述不正确的是
+A、<%@page%>作用于整个JSP页面
+B、可以在页面中使用多个<%@page指令%>
+C、为了增强程序的可读性，最好将<%@page%>指令放在开头，但不是必须的
+D、<%@page%>指令只能出现一次
+49、response对象重定向的方法是
+A、addCookie()
+B、setContentType()
+C、sendRedirect()
+D、setCharacterEncoding()
+50、JSP应用程序配置文件的根元素为
+A、<web>
+B、<web-inf>
+C、<web-app>
+D、<webroot>
+51、下列哪个不是out对象常用的方法
+A、getHeaderUrl()
+B、print()
+C、newLine()
+D、close()
+52、Http的中文含义为
+A、统一资源定位器
+B、简单邮件传输协议
+C、超文本传输协议
+D、网络套接字
+53、request对象通过哪个方法是根据组件名称获取提交数据的
+A、getParameterValues()
+B、getParameter()
+C、getHeaderNames()
+D、getRequestURI()
+54、JSP中的隐式注释为_?
+A、//注释内容
+B、<!—注释内容-->
+C、<%--注释内容--%>
+D、/*注释内容*/
+55、下面哪个内置对象的作用域最大
+A、pageContext
+B、request
+C、application
+D、session
+56、创建JSP应用程序时，配置文件web.xml应该在程序下的哪个目录中。
+A、admin
+B、WebContent
+C、WEB-INF
+D、WebRoot
+57、以下哪个对象提供了访问和放置页面共享数据的方式？
+A、pageContext
+B、response
+C、request
+D、session
+58、在JSP中如果要导入java.util.*包
+要使用什么指令
+A、page
+B、taglib
+C、include
+D、forward
+59、什么是动态网页？
+A、有js的网页
+B、与后台有交互的
+C、有css3动画的网页
+D、加jquery动画的网页
+60、下列不是JSP内置对象的是？
+A、cookie
+B、request
+C、session
+D、application
+1、设置cookie有效期的方法是调用cookie对象的setMaxAge（int expiry）方法，其中参数expiry代表cookie的有效期，以秒为单位，使用setMaxAge（int expiry）时，下面正确的是（）
+A、通常情况下expiry参数应为大于0的整数，表示cookie的有效存活时间。
+B、如果设置expiry参数等于0，表示删除cookie。
+C、设置expiry参数为负数或者不设置，表示cookie会在当前窗口关闭后失效。
+D、如果设置expiry参数等于0，表示cookie永久有效。
+2、cookie的作用表现在以下方面（）
+A、对特定对象的追踪，如访问者的访问次数、最后访问时间、路径等。
+B、统计网页浏览次数。
+C、在cookie有效期内，记录用户登录信息。
+D、实现各种个性化服务，如针对不同用户喜欢以不同的风格展示不同的内容。
+3、会话跟踪技术可以通过以下哪些技术实现（）
+A、数据库
+B、文件系统
+C、cookie
+D、session
+E、配置文件
+4、分页时将所有查询结果保存在session对象或集合中，翻页时从session对象或集合中取出一页所需的数据显示。属于这个方式的缺点的是（）
+A、用户看到的可能是过期数据。
+B、数据量非常大，查询一次数据集会耗费很长时间，并且存储的数据也会占用大量内存，效率明显下降。
+C、需要设置主键和索引提高查询效率。
+D、每次翻页都需要查询数据库。
+5、MVC模式中，M指的是（），V指的是（），C指的是（）
+A、模型
+B、视图
+C、控制器
+D、逻辑
+6、MVC模式的优点有（）
+A、各司其职，互不干涉
+B、利于分工
+C、利于重用和扩展
+D、降低了开发工作量
+7、Model1模式是（）和（）的组合
+A、Servlet
+B、JSP
+C、JavaBean
+D、Model
+8、整个MVC的流程就是：用户发送一个请求，首先由（）接收，然后根据请求去调用（）处理并返回数据，接着调用相应的（）把数据响应给用户
+A、表现层
+B、控制层
+C、模型层
+D、视图层
+9、Servlet容器调用（）方法对Servlet实例进行初始化，调用（）方法进行销毁
+A、init()
+B、service()
+C、destroy()
+D、post()
+10、Servlet中获取请求的参数值用（）方法，同名的多个参数使用（）方法
+A、getAttribute()
+B、getInitParameter()
+C、getParameter()
+D、getParameterValues()
+11、抽象类GenericServlet实现了（）接口和（）接口
+A、Servlet
+B、ServletConfig
+C、ConfigServlet
+D、HttpServlet
+12、下列说法正确的是
+A、post请求解决乱码问题可以采用重建字符串
+B、get请求采用getCharacterEncoding()解决乱码问题
+C、post请求与get请求可以使用同一方法解决乱码
+D、post请求比get请求更为安全，以及承载量大
+13、下列关于关于web常识性问题说法正确的是
+A、tomcat默认端口号为8080，但可以更改
+B、请求编码格式与接收编码格式保持一致才不会乱码
+C、Jsp有四个域对象
+D、会话开始会产生一个session对象
+14、使用JDBC访问数据时，常用的接口有
+A、Record
+B、ResultSet
+C、Statement
+D、PreparedStatement
+E、SQLConnection
+F、Connection
+15、下列关于重定向与转发的说法正确的是
+A、转发不会产生新的request对象
+B、重定向是发送一个新的请求
+C、发送一次请求会产生一个response与request对象
+D、重定向与转发都不会产生新的request对象
+16、下列哪些是jsp的内置对象
+A、response
+B、request
+C、out
+D、page
+17、下面关于Jsp说法正确的是？
+A、其根本是一个简化的Servlet
+B、用JSP开发的Web应用是跨平台的
+C、将内容的生成和显示进行分离
+D、Jsp有自己独有的标签库
+1、对JSTL说法中正确的是(    )
+A、foreach用来循环输出集合中的数据
+B、set标签用来定义变量
+C、out标签只能输出session中的变量值
+D、if标签主要用来执行数据库操
+2、对于分页查询， 以下说法不正确的是(    )
+A、可以减轻服务器压力
+B、对于程序开销极大
+C、以提高用户体验
+D、对于不同数据库有不同的SQL指令
+3、对于B/S架构的工作流程，以下说法正确的是(   )
+A、浏览器接受用户的输入-->浏览器向服务器端发送请求-->服务器端数据处理-->响应数据至客户端
+B、发送响应-->浏览器接受用户的输入-->浏览器向服务器端发送请求-->服务器端数据处理
+C、发送响应-->浏览器接受用户的输入-->服务器端数据处理-->浏览器向服务器端发送请求
+D、浏览器接受用户的输入-->发送响应-->服务器端数据处理-->浏览器向服务器端发送请求
+4、假设session对象中存放了一个Book对象，即：session.setAttribute("book",new Book()) , 则取出Book对象的正确语句是（    ）
+A、Book book = session.getAttribute("book")
+B、Book book = (Book)session.getAttribute("book")
+C、Book book = session.getValue("book")
+D、Book book = (Book)session.getValue("book")
+5、以下JSP代码运行后的结果为（   ）。（选择一项）
+<%int i="8;%">
+<%=i+"8"%> 
+A、18
+B、88
+C、9
+D、编译出错
+6、对于ServletRequest接口的getAttribute()方法，说法正确的是(   )
+A、获取指定名称的属性值
+B、设置指定属性的值
+C、删除指定属性的值
+D、以上都不对
+7、下列关于el表达式说法不正确的是
+A、el表达式可以从域对象中取出数据
+B、el表达式可以进行逻辑运算
+C、el表达式不能进行算术运算
+D、el表达式可以指明取哪个域对象的属性值
+8、关于get与post请求说法不正确的是
+A、get请求相对不安全
+B、post请求相对安全
+C、post请求携带数据量比较大，传递一些较大的文件，最好用post请求
+D、get请求携带的数据量比较大
+9、如果某一JSP页面的表单中，有两个，name为“habit”,则该jsp提交后，通过下面（ ）语句去获取用户选中单选框的值。
+A、request.getAttribute(“habit”);
+B、request.getParameter(“habit”);
+C、request.getParameterValues(“habit”);
+D、 request.getHabit();
+10、用el表达式语法在JSP页面上正确显示10+20的结果的是（  ）
+A、${10+20}
+B、${10+20};
+C、$(10+20)
+D、 $(10+20);
+11、如果某一JSP页面的表单中，有几个复选框，name为“habit”,则该jsp提交后，通过下面（ ）语句去获取用户选中复选框的值。
+A、request.getAttribute(“habit”);
+B、request.getParameter(“habit”);
+C、 request.getParameterValues(“habit”);
+D、request.getHabit();
+12、下列关于session与cookie描述错误的是
+A、Cookie是客户端保存数据的技术
+B、session是服务器端保存数据的技术
+C、Cookie是在客户端创建，然后保存在客户端的
+D、Cookie是由服务器端创建，然后发送给客户端的
+13、session对象的（）方法用于设置会话的超时时间
+A、session.setAttribute(“time”,30);
+B、session.setMaxTime(30);
+C、session.getMaxInactiveInterval();
+D、session.setMaxInactiveInterval(30);
+14、对于一个session来说我们描述正确的是（）
+A、一个session对应一个浏览器，浏览器关闭session就销毁了
+B、服务器为每一个浏览器分配一个session，但是session不会再浏览器关闭的时候销毁。只有过期或服务器关闭才会销毁
+C、一个session不对应一个浏览器，一台计算机只有一个session
+D、以上都不对
+15、在JSP页面中用户创建对象，我们可以把它放到一个范围内，然后在这个范围内我们可以访问这些对象。在JSP中，对象有四种范围，从大到小分别是（）
+A、application session request page
+B、session、application、request、page
+C、application request session page
+D、application page session request
+16、在Servlet里，能正确获取session的语句是（）
+A、HttpSession session = request.getSession( );
+B、HttpSession session = response.getHttpSession( );
+C、HttpSession session = response.getSession( );
+D、HttpSession session = request.getHttpSession( );
+17、在EL表达式中可以通过（）来访问其它域对象
+A、pageContext
+B、page
+C、request
+D、session
+18、下列那种是el表达式的正确使用方式（）
+A、$(info)
+B、${info}
+C、$[info]
+D、$[{info}]
+19、下面对JDBC API描述错误的是( )。
+A、DriverManager接口的getConnection( )方法可以建立和数据库的连接
+B、Connection接口的createStatement( )方法可以创建一个Statement对象
+C、Statement接口的executeQuery( )方法可以发送select语句给数据库
+D、ResultSet接口表示执行insert语句后得到的结果集
+20、通过a标签发送的请求，servlet应该用哪个方法处理
+A、doHead()
+B、doPost()
+C、doGet()
+D、doPut()
+21、三层架构是分层模式中最常见的类型，那么在三层架构中不包含（    ）。
+A、数据访问层
+B、业务逻辑层 
+C、通信层
+D、表示层
+22、下述选项中不属于JDBC基本步骤的是(  )
+A、与数据库建立连接 
+B、提交SQL语句 
+C、处理查询结果
+D、数据库维护管理
+23、下列不是JSP内置对象的是？
+A、cookie
+B、request
+C、session
+D、application
+24、在JSP中如果要导入资源需要用以下哪个标签
+A、page
+B、taglib
+C、include
+D、forward
+25、以下哪个对象提供了访问和放置页面共享数据的方式？
+A、pageContext
+B、response
+C、request
+D、session
+26、下面哪个内置对象的作用域最大
+A、pageContext
+B、request
+C、application
+D、session
+27、下列关于转发与重定向说法错误的是
+A、转发并没有产生新的请求
+B、重发产生了新的请求，会产生新的请求对象
+C、转发的方法为forward(request,response),重定向的方法是sendRedirect
+D、转发与重定向可以同时操作
+28、request对象通过哪个方法是根据组件名称获取提交数据的
+A、getParameterValues()
+B、getParameter()
+C、getHeaderNames()
+D、getRequestURI()
+29、response对象重定向的方法是
+A、addCookie()
+B、setContentType()
+C、sendRedirect()
+D、setCharacterEncoding()
+30、下面哪个HTTP响应的状态码意思为资源找不到
+A、200
+B、404
+C、500
+D、502
+31、下列关于session说法错误的是
+A、服务器端不会主动销毁session
+B、用户退出session对象失效
+C、用户长时间不操作会导致session销毁
+D、session只存在于服务器端
+32、下列不是servlet的四大域对象的是
+A、request
+B、session
+C、cookie
+D、application
+33、下面哪个对象是用于处理请求的
+A、out
+B、response
+C、request
+D、application
+34、部署Servlet需要在部署描述文件中添加哪两个元素？
+A、<servlet>,<servlet-config>
+B、<servlet-name>,<url-pattern>
+C、<servlet>,<servlet-mapping>
+D、<servlet-class>,<servlet-mapping>
+35、配置Servlet时的作用是？
+A、指定Servlet的名称
+B、指定Servlet的类
+C、指定Servlet的URL
+D、以上都不对
+36、在元素中增加（）元素可以指定在容器启动时Servlet的加载次序
+A、<load-on-start>
+B、<run-on-startup>
+C、<load-when-startup>
+D、<load-on-startup>
+37、通常如果需要编写Servlet就要继承（）类
+A、HttpServlet
+B、ServletConfig
+C、GenericServlet
+D、Servlet
+38、Servlet的实例是由（）创建的
+A、程序员
+B、用户
+C、浏览器
+D、web容器
+39、Servlet生命周期中init()方法执行（）次
+A、1次
+B、2次
+C、3次
+   D、4次
+40、关于MVC设计模式，下列说法正确的是（）
+A、M是视图，V是控制器，C是模型
+B、M是控制器，V是模型，C是视图
+C、M是模型，V是视图，C是控制器
+D、以上都不对
+41、Servlet通常作为MVC模式中的（）层
+A、模型
+B、视图
+C、控制
+D、逻辑
+42、MVC设计模式的优点不包括（）
+A、各司其职，互不干涉
+B、利于分工
+C、利于重用和扩展
+D、降低了开发工作量
+43、MVC模式中，M（模型层）指的是（）
+A、实体类
+B、Service层
+C、dao层
+D、以上都是
+44、MVC模式中，模型对应的组件在（）
+A、JSP
+B、Servlet
+C、pojo
+D、JavaBean
+45、下列关于jsp的说法错误的是
+A、Jsp有四大域对象
+B、一般有三种会话管理技术
+C、Jsp有九大内置对象
+D、会话结束application对象也随之消亡
+46、下列关于JSP和Servlet的说法错误的是（）
+A、JSP会被翻译成Servlet
+B、jsp的执行过程为翻译、编译、执行
+C、jsp与servet没有关系，因为前者是页面，后者是java类
+D、jsp与servlet没有继承关系
+47、下列关于URL的说法错误的是
+A、URL称为统一资源定位
+B、URL由协议，域名或ip地址端口号等组成
+C、http://localhost:8080/jsp/login.jsp的URI为jsp/login.jsp
+D、URL与URI为一回事
+48、下列关于URL的说法错误的是
+A、URL称为统一资源定位
+B、URL由协议，域名或ip地址端口号等组成
+C、http://localhost:8080/jsp/login.jsp的URI为jsp/login.jsp
+D、URL与URI为一回事
+49、下面关于动态资源静态资源说法错误的是
+A、HTML+CSS+JavaScript属于静态资源
+B、动态资源为一段服务程序，运行后，生成的数据文件
+C、js属于动态资源
+D、jsp属于动态资源
+50、JSP所转换成的class文件在tomcat目录的（）文件夹下
+A、webapps
+B、temp
+C、lib
+D、work
+1、分页时将所有查询结果保存在session对象或集合中，翻页时从session对象或集合中取出一页所需的数据显示。这种方式的两大缺点____，____。
+答案：用户看到的可能是过期数据;数据量非常大，查询一次数据集会耗费很长时间，并且存储的数据也会占用大量内存，效率明显下降
+2、在Servlet里，能正确获取session的语句是____。
+答案：request.getSession(true);
+3、在JSP中使用cookie，需要经过以下几个步骤____，____，____，____。
+答案：创建cookie对象,写入cookie,读取cookie,设置cookie的有效期
+4、Servlet在MVC模式中充当_______
+答案：控制器
+5、JSP页面在MVC模式中充当_______
+答案：视图
+6、MVC模式中，M指的是______，V指的是______，C指的是________
+答案：MoD,El,View,Controller（模型，视图，控制器）
+7、Model1模式下的程序流程控制是在_____中实现的，这使得JSP页面中的嵌入大量的_______
+答案：JSP页面，Java代码
+8、Model1模式是_____+_______的结合，在JSP技术发展的初识阶段被广泛使用
+答案：JSP,JavA,B,Ean
+9、Servlet的生命周期方法有______,_________,_______
+答案：init(),serviC,E(),D,Estroy()
+10、Servlet中重定向使用的是_______对象的__________方法
+答案：response，sendRedirect(String location)
+11、编写Servlet时只需要根据应用的需要，重写_______或者_______方法即可
+答案：doGet() ， doPost()
+12、向请求作用域中存放数据可以用request对象的_____方法，取数据可以用__________方法
+答案：setAttribute（String,Object），getAttribute（String）
+13、Servlet跳转页面有两种方式，一种是______,另一种是_______
+答案：重定向，转发
+14、转发是使用RequestDispatcher对象的_________________方法
+答案：forward()
+15、客户端用_____________对象存放数据
+答案：cookie
+16、常用的内置对象有_________、__________、___________等
+答案：request response session application out等说出三个即可
+17、JDBC连接数据库的步骤依次为_____________、____________、___________、____________、_______________。
+答案：加载JDBC驱动、与数据库建立连接、发送 SQL 语句，并得到返回结果、处理返回结果、 数据库访问结束后，进行资源释放
+18、URL意思为_________________
+答案：统一资源定位符
+19、JSP文件请求需要经过___________、__________、___________三个阶段
+答案：翻译阶段 编译阶段 执行阶段
+20、URL由________、________、_______组成
+答案：协议 主机名（有时包含端口号） 路径
+1、JSP的九个隐式对象？
+参考答案要点：request、response、out、session、application、pageContext、page、config、exception。
+2、什么是MVC设计模式？
+参考答案要点：MVC的全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，是一种软件设计模式。它是用一种业务逻辑、数据与界面显示分离的方法来组织代码，视图组件发请求给控制器，控制器调用模型处理完成后，交给视图组件显示。
+3、简述什么是Servlet
+参考答案要点：Servlet是用Java编写的类，运行在服务器端，可以接收http请求生成动态Web内容。jsp经过翻译后就是Servlet类。
+4、jQuery提供多个发送ajax方法，请写出常用的几个方法
+参考答案要点：$.get()，$.post()，$.ajax()
+</load-on-startup></load-when-startup></run-on-startup></load-on-start></servlet-mapping></servlet-class></servlet-mapping></servlet></url-pattern></servlet-name></servlet-config></servlet></%=i+"8"%></%int></%--注释内容--%></webroot></web-app></web-inf></web></%@page%></%@page%></%@page指令%></%@page%></servlet-mapping></servlet-class></servlet-mapping></servlet></url-pattern></servlet-name></servlet-config></servlet></load-on-startup></load-when-startup></run-on-startup></load-on-start></%="2"+"4"></%@></%></%@></%@></%--注释内容--%></webroot></web-app></web-inf></web></%@page%></%@page%></%@page指令%></%@page%></jsp:usebean></jsp:getproperty></jsp:setproperty></jsp:usebean></javabean></%@></%@></%@></%@></jsp:getproperty></%!预定义%></%!></%></%></%user.getloginname();%></%></c:catch></c:url></c:if></c:out></！%--></%--></%!></！%--></%--></%=count++></%></%></%=++count></%></%></%user.getloginname();%></%></%=out.println(name);></%=name%>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/20/jsp试题题库/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CRM系统数据库设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1350,133 +2586,6 @@ request域：代表一次请求的范围，一般用于请求转发的多个资�
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/13/动态网站开发第一次课讲义/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL第五次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/23/MySQL第五次课/">MySQL第五次课</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/23/MySQL第五次课/" class="archive-article-date">
-  	<time datetime="2019-10-23T02:24:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/*<br>Mysql第五次课<br>   索引与事务<br>   数据库优化<br>      数据库优化指的就是通过各种途径<br>      提高查询效率<br>   优化方式有多种，但其中之一就是为字段<br>   添加索引<br>   什么是索引？<br>     相当于为某个字段或某几个字段，添加<br>     了目录，大大提高了查询效率<br>   索引的分类<br>   普通索引<br>   唯一索引<br>      为字段添加唯一约束，就同时添加<br>      了唯一索引<br>   主键索引<br>      为字段添加主键约束，就同时添加<br>      了主键索引<br>   组合索引<br>   全文索引<br>   空间索引<br>   #创建索引的方式<br>   1、创建表的同时，添加索引<br>   2、alter table<br>   3、create index<br>二、事务<br>   几条语句组成一个整体，要么全部执行成功<br>   要么全部执行失败<br>   关闭事务自动提交<br>   第一开启事务 begin<br>   第二执行语句判断成功不成功<br>       不成功就要全部回滚  rollback<br>   第三成功就进行提交事务  commit<br>   其实每条语句都是一条自动提交的事务<br>事务的特点<br>  原子性<br>      事务的语句是不可分割的，要么全部成功<br>      要么全部失败<br>  一致性<br>      事务完成前后，数据必须保持完全<br>        一致的状态<br>  隔离性<br>      事务与事务之间互不影响，相互独立<br>  持久性<br>      事务一旦完成，对系统的影响，<br>      是永久性的<br>事务的隔离级别<br>未提交读(read uncommitted)<br>已提交读(read committed)<br>重复读(repeatable read)<br>可串行化(serializable)<br>*/<br>#1创建表的同时，添加索引<br>CREATE TABLE emp1(<br>    eid INT PRIMARY KEY AUTO_INCREMENT,<br>    enam VARCHAR(20) NOT NULL,<br>    etel VARCHAR(20) UNIQUE,<br>    INDEX(enam) #为enam字段添加普通索引<br>)<br>SHOW INDEX FROM emp1;<br>#create index<br>#创建普通索引<br>CREATE INDEX index_name ON<br>        table_name(colname[LENGTH])<br>#创建唯一索引<br>CREATE UNIQUE INDEX index_name ON<br>        table_name(colname[LENGTH])</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/23/MySQL第五次课/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL第四课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/23/MySQL第四课/">MySQL第四课</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/23/MySQL第四课/" class="archive-article-date">
-  	<time datetime="2019-10-23T02:20:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Mysql第四次课<br> truncate清空表<br> truncate table 表名<br> is  null<br> is not null<br> 模糊查询<br>    like<br>    % 代表一个或多个字符<br>    _ 代表一个字符<br> exists存在<br>    exists里边括住的是一个<br>    查询语句,如果查询语句<br>    有结果，外部查询就正常<br>    执行，如果没结果，外部<br>    查询不执行<br> not exists不存在</p>
-<p>SELECT * FROM course<br>              WHERE cnam IS NOT NULL<br>#模糊查询<br>#查询出姓名中包含“三”的<br>#学生的信息<br>SELECT * FROM StudentInfo<br>      WHERE snam LIKE ‘%三%’;<br>#查询出姓周的同学信息<br>SELECT * FROM StudentInfo<br>      WHERE snam LIKE ‘周%’<br>#如果有安阳市的学生，就把<br>#本班所有学生的信息查询<br>#出来<br>SELECT * FROM StudentInfo<br>           WHERE EXISTS(<br>SELECT * FROM StudentInfo<br>         WHERE address LIKE ‘%许昌%’<br>)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/23/MySQL第四课/">展开全文 >></a>
         </p>
       
 
